@@ -3,317 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camélia Logistics | Transport moderne au Cameroun</title>
-    
-    <!-- CDN Links -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">    
-    <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
+    <title>Camélia Logistics | Transport nouvelle génération au Cameroun</title>
     <link rel="icon" type="image/x-icon" href="image/logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#accueil">
-                <img src="image/logo.jpg" alt="Camélia Logistics">
-                Camélia Logistics
+
+<!-- ===== NAVBAR ===== -->
+<nav class="cl-navbar" id="navbar">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a class="cl-brand" href="#accueil">
+            <img src="image/logo.jpg" alt="Logo Camélia Logistics">
+            <span>Camélia<em>Logistics</em></span>
+        </a>
+        <button class="cl-burger" id="burgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="cl-nav-links" id="navLinks">
+            <a href="#accueil" class="cl-nav-link active">Accueil</a>
+            <a href="#services" class="cl-nav-link">Services</a>
+            <a href="#comment" class="cl-nav-link">Comment ça marche</a>
+            <a href="#temoignages" class="cl-nav-link">Témoignages</a>
+            <a href="#download" class="cl-nav-cta">
+                <i class="bi bi-android2"></i> Télécharger
             </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#comment">Comment ça marche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#temoignages">Témoignages</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-primary" href="#download">Télécharger</a></li>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="cl-hero" id="accueil">
+    <div class="cl-hero-bg">
+        <div class="cl-hero-grid"></div>
+        <div class="cl-hero-glow g1"></div>
+        <div class="cl-hero-glow g2"></div>
+    </div>
+    <div class="container cl-hero-inner">
+        <div class="cl-hero-left reveal">
+            <div class="cl-badge"><i class="bi bi-truck"></i> Transport intelligent · Cameroun</div>
+            <h1 class="cl-hero-title">
+                Vos marchandises,<br>
+                <span class="cl-stroke">n'importe où</span><br>
+                <span class="cl-accent-word">en un clic.</span>
+            </h1>
+            <p class="cl-hero-sub">
+                Camélia Logistics connecte vos besoins aux meilleurs transporteurs. Colis, équipements, déménagement — rapidité, sécurité et suivi en temps réel partout au Cameroun.
+            </p>
+            <div class="cl-hero-btns">
+                <a href="#comment" class="cl-btn-primary">
+                    <i class="bi bi-play-circle-fill"></i> Découvrir
+                </a>
+                <a href="#download" class="cl-btn-ghost">
+                    <i class="bi bi-download"></i> L'application
+                </a>
+            </div>
+        </div>
+        <div class="cl-hero-right reveal-right">
+            <div class="cl-hero-card-wrap">
+                <img src="image/warehouse_09.jpg" alt="Transport Camélia" class="cl-hero-img">
+                <div class="cl-floatcard fc-top">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>95% à l'heure</span>
+                </div>
+                <div class="cl-floatcard fc-bot">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>Douala ↔ Yaoundé</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cl-hero-scroll-hint">
+        <span>Défiler</span>
+        <div class="cl-scroll-line"></div>
+    </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="cl-stats">
+    <div class="container">
+        <div class="cl-stats-grid">
+            <div class="cl-stat reveal-up">
+                <div class="cl-stat-num">2024</div>
+                <div class="cl-stat-label">Fondée à Douala</div>
+            </div>
+            <div class="cl-stat-divider"></div>
+            <div class="cl-stat reveal-up" style="animation-delay:.1s">
+                <div class="cl-stat-num">24/7</div>
+                <div class="cl-stat-label">Support client</div>
+            </div>
+            <div class="cl-stat-divider"></div>
+            <div class="cl-stat reveal-up" style="animation-delay:.2s">
+                <div class="cl-stat-num">95%</div>
+                <div class="cl-stat-label">Livraisons à l'heure</div>
+            </div>
+            <div class="cl-stat-divider"></div>
+            <div class="cl-stat reveal-up" style="animation-delay:.3s">
+                <div class="cl-stat-num">3+</div>
+                <div class="cl-stat-label">Villes couvertes</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="cl-services" id="services">
+    <div class="cl-section-bg-text">SERVICES</div>
+    <div class="container">
+        <div class="cl-section-head reveal-up">
+            <span class="cl-overline">Nos solutions</span>
+            <h2 class="cl-section-title">Des services pensés<br><span class="cl-accent-word">pour vous</span></h2>
+        </div>
+        <div class="cl-services-grid">
+            <div class="cl-service-card reveal-up">
+                <div class="cl-svc-num">01</div>
+                <div class="cl-svc-icon"><i class="bi bi-truck-front-fill"></i></div>
+                <h3>Livraisons urbaines</h3>
+                <p>De quartier à quartier, dans toutes les grandes villes du Cameroun. Rapidité garantie, même en heure de pointe.</p>
+                <div class="cl-svc-hover-line"></div>
+            </div>
+            <div class="cl-service-card reveal-up" style="animation-delay:.1s">
+                <div class="cl-svc-num">02</div>
+                <div class="cl-svc-icon"><i class="bi bi-box-seam-fill"></i></div>
+                <h3>Transport interurbain</h3>
+                <p>De Douala à Yaoundé, Garoua ou Bafoussam. Sécurité et ponctualité sur tous les grands axes.</p>
+                <div class="cl-svc-hover-line"></div>
+            </div>
+            <div class="cl-service-card reveal-up" style="animation-delay:.2s">
+                <div class="cl-svc-num">03</div>
+                <div class="cl-svc-icon"><i class="bi bi-house-door-fill"></i></div>
+                <h3>Déménagements</h3>
+                <p>Camions adaptés, équipes disponibles, déménagement sans stress — résidentiel ou professionnel.</p>
+                <div class="cl-svc-hover-line"></div>
+            </div>
+            <div class="cl-service-card reveal-up" style="animation-delay:.3s">
+                <div class="cl-svc-num">04</div>
+                <div class="cl-svc-icon"><i class="bi bi-building-gear"></i></div>
+                <h3>Logistique pro</h3>
+                <p>Solutions dédiées aux entreprises : flux réguliers, contrats sur-mesure, reporting et traçabilité.</p>
+                <div class="cl-svc-hover-line"></div>
+            </div>
+            <div class="cl-service-card reveal-up" style="animation-delay:.4s">
+                <div class="cl-svc-num">05</div>
+                <div class="cl-svc-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                <h3>Livraisons express</h3>
+                <p>Pour les urgences absolues. Ramassage en moins de 30 minutes et livraison prioritaire.</p>
+                <div class="cl-svc-hover-line"></div>
+            </div>
+            <div class="cl-service-card reveal-up" style="animation-delay:.5s">
+                <div class="cl-svc-num">06</div>
+                <div class="cl-svc-icon"><i class="bi bi-shield-check-fill"></i></div>
+                <h3>Transport sécurisé</h3>
+                <p>Chaque transporteur est vérifié et chaque trajet est assuré. Votre marchandise voyage en toute confiance.</p>
+                <div class="cl-svc-hover-line"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="cl-how" id="comment">
+    <div class="container">
+        <div class="cl-section-head reveal-up">
+            <span class="cl-overline">Le processus</span>
+            <h2 class="cl-section-title">Comment ça<br><span class="cl-accent-word">marche ?</span></h2>
+        </div>
+        <div class="cl-how-timeline">
+            <div class="cl-how-line"></div>
+            <div class="cl-how-step reveal-up">
+                <div class="cl-step-dot"><span>1</span></div>
+                <div class="cl-step-content">
+                    <div class="cl-step-icon"><i class="bi bi-phone-fill"></i></div>
+                    <h3>Décrivez votre besoin</h3>
+                    <p>Indiquez votre départ, destination, type de marchandise et date souhaitée via l'application.</p>
+                </div>
+            </div>
+            <div class="cl-how-step reveal-up" style="animation-delay:.15s">
+                <div class="cl-step-dot"><span>2</span></div>
+                <div class="cl-step-content">
+                    <div class="cl-step-icon"><i class="bi bi-people-fill"></i></div>
+                    <h3>Recevez des offres</h3>
+                    <p>Nos transporteurs partenaires répondent en temps réel. Comparez les profils, tarifs et avis.</p>
+                </div>
+            </div>
+            <div class="cl-how-step reveal-up" style="animation-delay:.3s">
+                <div class="cl-step-dot"><span>3</span></div>
+                <div class="cl-step-content">
+                    <div class="cl-step-icon"><i class="bi bi-credit-card-fill"></i></div>
+                    <h3>Confirmez et payez</h3>
+                    <p>Sélectionnez votre transporteur et réglez en toute sécurité depuis l'application.</p>
+                </div>
+            </div>
+            <div class="cl-how-step reveal-up" style="animation-delay:.45s">
+                <div class="cl-step-dot"><span>4</span></div>
+                <div class="cl-step-content">
+                    <div class="cl-step-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h3>Suivez en direct</h3>
+                    <p>Tracez votre livraison en temps réel. Votre marchandise arrive à destination, vous êtes notifié.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="cl-testi" id="temoignages">
+    <div class="cl-section-bg-text">AVIS</div>
+    <div class="container">
+        <div class="cl-section-head reveal-up">
+            <span class="cl-overline">Ce qu'ils disent</span>
+            <h2 class="cl-section-title">Témoignages<br><span class="cl-accent-word">clients</span></h2>
+        </div>
+        <div class="cl-testi-grid">
+            <div class="cl-testi-card reveal-up">
+                <div class="cl-testi-quote"><i class="bi bi-quote"></i></div>
+                <p>"J'envoie mes colis de Douala à Bafoussam tous les semaines. Avec Camélia Logistics, c'est devenu simple et fiable. Je ne pourrais plus m'en passer !"</p>
+                <div class="cl-testi-author">
+                    <div class="cl-testi-avatar"><i class="bi bi-person-fill"></i></div>
+                    <div>
+                        <strong>Jean-Pierre Mbarga</strong>
+                        <span>Commerçant, Douala</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cl-testi-card reveal-up" style="animation-delay:.1s">
+                <div class="cl-testi-quote"><i class="bi bi-quote"></i></div>
+                <p>"Rapide, professionnel et transparent sur les tarifs. J'ai déménagé sans stress. L'équipe est à l'écoute et mon mobilier est arrivé intact."</p>
+                <div class="cl-testi-author">
+                    <div class="cl-testi-avatar"><i class="bi bi-person-fill"></i></div>
+                    <div>
+                        <strong>Mélanie Fotso</strong>
+                        <span>Vendeuse de vêtements</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cl-testi-card reveal-up" style="animation-delay:.2s">
+                <div class="cl-testi-quote"><i class="bi bi-quote"></i></div>
+                <p>"J'ai choisi le pick-up pour transporter mes matériaux à Bafoussam. Aucun souci, professionnel ! Je recommande vivement Camélia Logistics."</p>
+                <div class="cl-testi-author">
+                    <div class="cl-testi-avatar"><i class="bi bi-person-fill"></i></div>
+                    <div>
+                        <strong>Alex Tchoumi</strong>
+                        <span>Artisan, Yaoundé</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DOWNLOAD ===== -->
+<section class="cl-download" id="download">
+    <div class="cl-download-bg">
+        <div class="cl-download-glow"></div>
+    </div>
+    <div class="container">
+        <div class="cl-download-inner">
+            <div class="cl-download-text reveal">
+                <span class="cl-overline light">Application mobile</span>
+                <h2 class="cl-section-title light">Téléchargez<br><span class="cl-accent-word">l'application</span></h2>
+                <p>Commandez un véhicule depuis votre téléphone en quelques secondes. Suivi en direct, paiement sécurisé, tout en un.</p>
+                <div class="cl-dl-buttons">
+                    <button class="cl-store-btn disabled" onclick="comingSoon()">
+                        <i class="bi bi-google-play"></i>
+                        <div><small>Bientôt sur</small><strong>Google Play</strong></div>
+                    </button>
+                    <button class="cl-store-btn disabled" onclick="comingSoon()">
+                        <i class="bi bi-apple"></i>
+                        <div><small>Bientôt sur</small><strong>App Store</strong></div>
+                    </button>
+                    <button class="cl-apk-btn" id="apkTestBtn">
+                        <i class="bi bi-android2"></i>
+                        <div>
+                            <small>Version bêta disponible</small>
+                            <strong>Télécharger l'APK test</strong>
+                        </div>
+                        <span class="cl-apk-badge">TEST</span>
+                    </button>
+                </div>
+                <p class="cl-apk-note"><i class="bi bi-info-circle"></i> Version bêta pour testeurs Android. Activez "Sources inconnues" dans vos paramètres.</p>
+            </div>
+            <div class="cl-download-visual reveal-right">
+                <div class="cl-phone-wrap">
+                    <img src="image/app.jpg" alt="App Camélia Logistics" class="cl-phone-img">
+                    <div class="cl-phone-glow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="cl-footer">
+    <div class="container">
+        <div class="cl-footer-top">
+            <div class="cl-footer-brand-col">
+                <div class="cl-footer-brand">
+                    <img src="image/logo.jpg" alt="Logo">
+                    <span>Camélia Logistics</span>
+                </div>
+                <p>Votre partenaire de confiance pour le transport au Cameroun. Rapidité, sécurité et innovation.</p>
+                <div class="cl-socials">
+                    <a href="https://www.facebook.com/p/Camelia-logistics-100085180665945/" class="cl-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://wa.me/237657519744" class="cl-social" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="cl-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@camelia.logistics" class="cl-social" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#comment">Comment ça marche</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#download">Télécharger</a></li>
+                </ul>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Légal</h4>
+                <ul>
+                    <li><a href="legal.html#about">À propos</a></li>
+                    <li><a href="legal.html#mentions-legales">Mentions légales</a></li>
+                    <li><a href="legal.html#confidentialite">Confidentialité</a></li>
+                    <li><a href="legal.html#cgu">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Contact</h4>
+                <ul class="cl-contact-list">
+                    <li><i class="bi bi-geo-alt-fill"></i> Entrée Casa, Douala, Cameroun</li>
+                    <li><i class="bi bi-telephone-fill"></i> +237 6 57 51 97 44</li>
+                    <li><i class="bi bi-envelope-fill"></i> camelialogisticss@gmail.com</li>
                 </ul>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section (identique) -->
-    <section class="hero-section" id="accueil" data-aos="fade-up">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1 class="hero-title">Transport de marchandises simplifié</h1>
-                        <p class="hero-subtitle">
-                            Trouvez le véhicule adapté en un clic partout au Cameroun. 
-                            Colis, équipements, déménagement – nous nous occupons de tout.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="#comment" class="btn btn-primary">
-                                <i class="bi bi-play-circle"></i> Comment ça marche
-                            </a>
-                            <a href="#download" class="btn btn-secondary">
-                                <i class="bi bi-download"></i> Télécharger l'app
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="cl-footer-bottom">
+            <span>&copy; 2024 <strong>Camélia Logistics SARL</strong>. Tous droits réservés.</span>
+            <span>Design par <strong>Maximilien Pele</strong></span>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="stat-item">
-                        <div class="stat-number">2024</div>
-                        <div class="stat-label">Année de création</div>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support client</div>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Livraisons à l'heure</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ---- Navbar scroll ----
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
 
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Nos Services</h2>
-            <div class="row">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-truck"></i>
-                        </div>
-                        <h3 class="service-title">Livraisons urbaines</h3>
-                        <p class="service-description">
-                            De quartier à quartier, dans toutes les grandes villes du Cameroun.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-box-seam"></i>
-                        </div>
-                        <h3 class="service-title">Transport interurbain</h3>
-                        <p class="service-description">
-                            De Douala à Yaoundé et bien plus encore. Rapidité et sécurité garanties.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-house-door"></i>
-                        </div>
-                        <h3 class="service-title">Déménagement</h3>
-                        <p class="service-description">
-                            Plus de soucis pour transporter vos effets personnels. Nous sommes là.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+// ---- Mobile burger ----
+const burger = document.getElementById('burgerBtn');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('.cl-nav-link, .cl-nav-cta').forEach(l => {
+    l.addEventListener('click', () => {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+    });
+});
 
-    <!-- How It Works Section -->
-    <section class="how-section" id="comment">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Comment ça marche</h2>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3 class="step-title">Décrivez vos besoins</h3>
-                        <p class="step-description">Indiquez votre ville, le type de marchandise et la destination.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3 class="step-title">Choisissez le véhicule</h3>
-                        <p class="step-description">Tricycle, pick-up ou camionnette selon votre chargement.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3 class="step-title">Comparez & réservez</h3>
-                        <p class="step-description">Sélectionnez selon le prix, le type de véhicule ou les avis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <h3 class="step-title">Livraison sécurisée</h3>
-                        <p class="step-description">Suivez en temps réel jusqu'à la destination finale.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+// ---- Reveal on scroll ----
+const revealEls = document.querySelectorAll('.reveal, .reveal-up, .reveal-right');
+const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => obs.observe(el));
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="temoignages">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Ce que disent nos clients</h2>
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up">
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <i class="bi bi-person-fill"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "J'ai pu envoyer mes stocks d'Akwa à Bonabéri en moins d'une heure. 
-                            Simple et rapide !"
-                        </p>
-                        <div>
-                            <div class="testimonial-author">Mélanie</div>
-                            <div class="testimonial-role">Vendeuse de vêtements</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <i class="bi bi-person-fill"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "J'ai choisi le pick-up pour transporter mes matériaux à Bafoussam. 
-                            Aucun souci !"
-                        </p>
-                        <div>
-                            <div class="testimonial-author">Alex Tchoumi</div>
-                            <div class="testimonial-role">Artisan</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+// ---- Active nav link ----
+const sections = document.querySelectorAll('section[id]');
+const navA = document.querySelectorAll('.cl-nav-link');
+window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navA.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+});
 
-    <!-- App Download Section -->
-    <section class="app-section" id="download">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="app-content">
-                        <h2 class="app-title">Téléchargez notre application</h2>
-                        <p class="app-description">
-                            Commandez un véhicule depuis votre téléphone en quelques clics. 
-                            Disponible sur Play Store et App Store.
-                        </p>
-                        <button class="btn btn-primary btn-lg" onclick="comingSoon()">
-                            <i class="bi bi-download"></i> Télécharger maintenant
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="app-image">
-                        <img src="image/app.jpg" alt="Application Camélia Logistics">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+// ---- APK Download ----
+function downloadTestAPK() {
+    const apkUrl = "/apk/camelia-logistics-test.apk";
+    const link = document.createElement('a');
+    link.href = apkUrl;
+    link.download = "camelia-logistics-test.apk";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => {
+        if (!document.hidden) alert("💡 Si le téléchargement ne démarre pas, vérifiez que le fichier APK est bien sur le serveur. Contactez-nous pour la version test.");
+    }, 1500);
+}
+document.getElementById('apkTestBtn')?.addEventListener('click', downloadTestAPK);
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-4">
-                    <h3 class="footer-title">Camélia Logistics</h3>
-                    <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
-                        Votre partenaire de confiance pour le transport au Cameroun. 
-                        Rapidité, sécurité et professionnalisme.
-                    </p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/p/Camelia-logistics-100085180665945/" class="social-icon"><i class="bi bi-facebook"></i></a>
-                        <a href="https://wa.me/237657519744" class="social-icon"><i class="bi bi-whatsapp"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@camelia.logistics" class="social-icon"><i class="bi bi-tiktok"></i></a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-2 col-md-6">
-                    <h3 class="footer-title">Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="#accueil"><i class="bi bi-chevron-right"></i> Accueil</a></li>
-                        <li><a href="#services"><i class="bi bi-chevron-right"></i> Services</a></li>
-                        <li><a href="#comment"><i class="bi bi-chevron-right"></i> Comment ça marche</a></li>
-                        <li><a href="#temoignages"><i class="bi bi-chevron-right"></i> Témoignages</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="footer-title">Informations légales</h3>
-                    <ul class="footer-links">
-                        <li><a href="legal.html#about"><i class="bi bi-chevron-right"></i> À propos</a></li>
-                        <li><a href="legal.html#mentions-legales"><i class="bi bi-chevron-right"></i> Mentions légales</a></li>
-                        <li><a href="legal.html#confidentialite"><i class="bi bi-chevron-right"></i> Confidentialité</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="footer-title">Contact</h3>
-                    <div class="footer-contact">
-                        <p><i class="bi bi-geo-alt"></i> Douala, Cameroun</p>
-                        <p><i class="bi bi-telephone"></i> +237 6 57 51 97 44</p>
-                        <p><i class="bi bi-envelope"></i> contact@cameliagistics.com</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2024 <strong>Camélia Logistics</strong>. Tous droits réservés.</p>
-                <p>Designé par <strong>Maximilien Pele</strong></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-        
-        // Coming soon alert
-        function comingSoon() {
-            alert("L'application Camélia Logistics sera bientôt disponible !");
-        }
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-                navbar.style.padding = '0.8rem 0';
-            } else {
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.03)';
-                navbar.style.padding = '1.2rem 0';
-            }
-        });
-    </script>
+function comingSoon() {
+    alert("📱 L'application sera bientôt disponible sur les stores officiels !");
+}
+</script>
 </body>
 </html>
