@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <script>
+    (function () {
+        try {
+            var saved = localStorage.getItem('cl-theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Partenaires — Documentation pour développeurs | Camelia Logistics</title>
+    <meta name="description" content="Intégrez la création et le suivi de commandes de transport directement depuis votre système grâce à l'API REST partenaires de Camelia Logistics : authentification par clé API, webhooks signés, idempotence.">
+    <meta name="keywords" content="API logistique, API livraison Cameroun, intégration transport, webhook logistique, API REST Camelia Logistics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://camelialogistics.com/api-partenaires.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Camelia Logistics">
+    <meta property="og:title" content="API Partenaires Camelia Logistics — Documentation">
+    <meta property="og:description" content="Créez et suivez des commandes de transport directement depuis votre système : authentification par clé API, idempotence, webhooks signés HMAC.">
+    <meta property="og:image" content="https://camelialogistics.com/image/logo.webp">
+    <meta property="og:url" content="https://camelialogistics.com/api-partenaires.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/webp" href="image/logo.webp">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://camelialogistics.com/" },
+        { "@type": "ListItem", "position": 2, "name": "API Partenaires", "item": "https://camelialogistics.com/api-partenaires.html" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "API Partenaires Camelia Logistics — Documentation",
+      "description": "Documentation de l'API REST permettant aux entreprises partenaires de créer et suivre des commandes de transport.",
+      "author": { "@type": "Organization", "name": "Camelia Logistics" },
+      "publisher": { "@type": "Organization", "name": "Camelia Logistics", "logo": { "@type": "ImageObject", "url": "https://camelialogistics.com/image/logo.webp" } }
+    }
+    </script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="cl-navbar scrolled" id="navbar">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a class="cl-brand" href="index.html">
+            <img src="image/logo.webp" alt="Logo Camelia Logistics" width="42" height="42">
+            <span>Camelia<em>Logistics</em></span>
+        </a>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+            <button class="cl-theme-toggle" id="themeToggle" type="button" aria-label="Basculer entre thème clair et sombre">
+                <i class="bi bi-moon-stars-fill icon-light"></i>
+                <i class="bi bi-sun-fill icon-dark"></i>
+            </button>
+            <a href="index.html" class="cl-btn-ghost" style="padding:.55rem 1.3rem;font-size:.9rem;border-radius:50px;">
+                <i class="bi bi-arrow-left"></i> Retour à l'accueil
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== CONTENU ===== -->
+<div class="legal-wrap">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="legal-page-header">
+            <span class="cl-overline">Documentation développeurs</span>
+            <h1>API<br><span class="cl-accent-word">Partenaires</span></h1>
+            <p>Créez et suivez des commandes de transport directement depuis votre système d'information. Authentification par clé API, idempotence garantie, notifications de statut en temps réel via webhooks signés.</p>
+            <div class="legal-date"><i class="bi bi-tag"></i> Version 1 (v1) · REST / JSON</div>
+        </div>
+
+        <!-- Diagramme de flux -->
+        <div class="api-flow reveal-up">
+            <div class="api-flow-line" aria-hidden="true"></div>
+            <div class="api-flow-step">
+                <div class="api-flow-icon"><i class="bi bi-building"></i></div>
+                <span>Votre système</span>
+            </div>
+            <div class="api-flow-step">
+                <div class="api-flow-icon"><i class="bi bi-shield-lock-fill"></i></div>
+                <span>API sécurisée</span>
+            </div>
+            <div class="api-flow-step">
+                <div class="api-flow-icon"><i class="bi bi-diagram-3-fill"></i></div>
+                <span>Camelia Logistics</span>
+            </div>
+            <div class="api-flow-step">
+                <div class="api-flow-icon"><i class="bi bi-truck"></i></div>
+                <span>Livraison suivie</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidenav -->
+            <div class="col-lg-3">
+                <nav class="legal-sidenav">
+                    <div class="legal-sidenav-title">Sommaire</div>
+                    <ul>
+                        <li><a href="#auth"><i class="bi bi-key-fill"></i> Authentification</a></li>
+                        <li><a href="#creer"><i class="bi bi-plus-circle"></i> Créer une commande</a></li>
+                        <li><a href="#consulter"><i class="bi bi-search"></i> Consulter</a></li>
+                        <li><a href="#lister"><i class="bi bi-list-ul"></i> Lister les commandes</a></li>
+                        <li><a href="#statuts"><i class="bi bi-signpost-split"></i> Statuts</a></li>
+                        <li><a href="#webhooks"><i class="bi bi-broadcast"></i> Webhooks</a></li>
+                        <li><a href="#bonnes-pratiques"><i class="bi bi-check2-circle"></i> Bonnes pratiques</a></li>
+                        <li><a href="#devenir-partenaire"><i class="bi bi-handshake"></i> Devenir partenaire</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+
+                <!-- ===== AUTH ===== -->
+                <div class="legal-block" id="auth">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-key-fill"></i></div>
+                        <h2>Authentification</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <p>Chaque entreprise partenaire reçoit une <strong>clé API secrète</strong> (format <code>sk_live_...</code>), générée une seule fois par un administrateur Camelia Logistics. Elle doit accompagner chaque requête dans l'en-tête HTTP <code>Authorization</code> :</p>
+
+                        <div class="cl-code-block">
+                            <div class="cl-code-block-head">
+                                <span>En-tête HTTP</span>
+                                <button class="cl-copy-btn" type="button"><i class="bi bi-clipboard"></i> Copier</button>
+                            </div>
+                            <pre><code>Authorization: Bearer sk_live_VOTRE_CLE_API_SECRETE</code></pre>
+                        </div>
+
+                        <div class="legal-highlight">
+                            <i class="bi bi-shield-check"></i>
+                            <span>La clé n'est affichée qu'une seule fois, au moment de sa création ou d'une rotation. Conservez-la dans un coffre-fort de secrets — jamais en clair dans un dépôt de code. Toutes les requêtes doivent être faites en <strong>HTTPS</strong>.</span>
+                        </div>
+
+                        <h3>Codes d'erreur d'authentification</h3>
+                        <div class="api-table-wrap">
+                            <table class="api-table">
+                                <thead><tr><th>HTTP</th><th>Erreur</th><th>Cause</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>401</code></td><td><code>unauthorized</code></td><td>En-tête <code>Authorization</code> manquant ou clé invalide</td></tr>
+                                    <tr><td><code>403</code></td><td><code>forbidden</code></td><td>Compte partenaire suspendu</td></tr>
+                                    <tr><td><code>429</code></td><td><code>rate_limited</code></td><td>Plus de 60 requêtes par minute</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== CREER ===== -->
+                <div class="legal-block" id="creer">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-plus-circle-fill"></i></div>
+                        <h2>Créer une commande</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <div class="api-endpoint-row">
+                            <span class="api-method-badge post">POST</span>
+                            <span>/v1/orders</span>
+                        </div>
+
+                        <h3>Corps de la requête</h3>
+                        <div class="api-table-wrap">
+                            <table class="api-table">
+                                <thead><tr><th>Champ</th><th>Type</th><th>&nbsp;</th><th>Description</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>partnerOrderRef</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Votre identifiant interne de commande. Clé d'idempotence : renvoyer deux fois la même référence retourne la commande déjà créée.</td></tr>
+                                    <tr><td><code>serviceType</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Ex. <code>LIVRAISON</code>, <code>STOCKAGE</code>, <code>DÉMÉNAGEMENT ET TRANSPORT</code>, <code>EXPÉDITION</code>.</td></tr>
+                                    <tr><td><code>pickupAddress</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Adresse d'enlèvement.</td></tr>
+                                    <tr><td><code>dropoffAddress</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Adresse de livraison.</td></tr>
+                                    <tr><td><code>packageNature</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Nature du colis ou de la marchandise.</td></tr>
+                                    <tr><td><code>vehicleType</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Type de véhicule souhaité.</td></tr>
+                                    <tr><td><code>contactName</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Nom du contact terrain que le livreur peut joindre.</td></tr>
+                                    <tr><td><code>contactPhone</code></td><td>string</td><td><span class="api-required">requis</span></td><td>Téléphone du contact terrain.</td></tr>
+                                    <tr><td><code>description</code></td><td>string</td><td><span class="api-optional">optionnel</span></td><td>Notes libres (max 1000 caractères).</td></tr>
+                                    <tr><td><code>photoUrls</code></td><td>string[]</td><td><span class="api-optional">optionnel</span></td><td>URLs de photos du colis (max 10).</td></tr>
+                                    <tr><td><code>additionalDetails</code></td><td>object</td><td><span class="api-optional">optionnel</span></td><td>Métadonnées libres (volume, étage, etc.).</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="cl-code-block">
+                            <div class="cl-code-block-head">
+                                <span>Exemple — curl</span>
+                                <button class="cl-copy-btn" type="button"><i class="bi bi-clipboard"></i> Copier</button>
+                            </div>
+                            <pre><code><span class="tok-cmt"># Création d'une commande, idempotente via partnerOrderRef</span>
+curl -X POST <span class="tok-str">"https://us-central1-camelia-89667.cloudfunctions.net/partnerApi/v1/orders"</span> \
+  -H <span class="tok-str">"Authorization: Bearer sk_live_VOTRE_CLE_API_SECRETE"</span> \
+  -H <span class="tok-str">"Content-Type: application/json"</span> \
+  -d <span class="tok-str">'{
+    "partnerOrderRef": "CMD-2026-00042",
+    "serviceType": "LIVRAISON",
+    "pickupAddress": "Entrepôt Zone Industrielle, Douala",
+    "dropoffAddress": "12 Rue des Jardins, Douala",
+    "packageNature": "Pièces détachées",
+    "vehicleType": "Camionnette",
+    "contactName": "Awa Diop",
+    "contactPhone": "+237600000000",
+    "additionalDetails": { "poids_kg": 40 }
+  }'</span></code></pre>
+                        </div>
+
+                        <h3>Réponse</h3>
+                        <p><code>201 Created</code> pour une nouvelle commande, ou <code>200 OK</code> si la commande existait déjà (idempotence) :</p>
+                        <div class="cl-code-block">
+                            <div class="cl-code-block-head">
+                                <span>200 / 201 — application/json</span>
+                                <button class="cl-copy-btn" type="button"><i class="bi bi-clipboard"></i> Copier</button>
+                            </div>
+                            <pre><code>{
+  <span class="tok-key">"order"</span>: {
+    <span class="tok-key">"id"</span>: <span class="tok-str">"f3c1a9..."</span>,
+    <span class="tok-key">"status"</span>: <span class="tok-str">"PENDING"</span>,
+    <span class="tok-key">"serviceType"</span>: <span class="tok-str">"LIVRAISON"</span>,
+    <span class="tok-key">"priceQuote"</span>: <span class="tok-const">null</span>,
+    <span class="tok-key">"isQuote"</span>: <span class="tok-const">true</span>,
+    <span class="tok-key">"contactName"</span>: <span class="tok-str">"Awa Diop"</span>,
+    <span class="tok-key">"partnerOrderRef"</span>: <span class="tok-str">"CMD-2026-00042"</span>,
+    <span class="tok-key">"source"</span>: <span class="tok-str">"partner_api"</span>,
+    <span class="tok-key">"createdAt"</span>: <span class="tok-str">"2026-08-04T10:15:00.000Z"</span>
+  }
+}</code></pre>
+                        </div>
+                        <p><code>400 invalid_request</code> si un champ requis est manquant ou invalide (détail dans <code>details</code>).</p>
+                    </div>
+                </div>
+
+                <!-- ===== CONSULTER ===== -->
+                <div class="legal-block" id="consulter">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-search"></i></div>
+                        <h2>Consulter une commande</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <div class="api-endpoint-row">
+                            <span class="api-method-badge get">GET</span>
+                            <span>/v1/orders/{id}</span>
+                        </div>
+                        <p>Renvoie <code>200</code> avec l'objet commande, ou <code>404 not_found</code> si elle n'existe pas ou n'appartient pas à votre compte.</p>
+                    </div>
+                </div>
+
+                <!-- ===== LISTER ===== -->
+                <div class="legal-block" id="lister">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-list-ul"></i></div>
+                        <h2>Lister vos commandes</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <div class="api-endpoint-row">
+                            <span class="api-method-badge get">GET</span>
+                            <span>/v1/orders?status=PENDING&amp;limit=20</span>
+                        </div>
+                        <ul>
+                            <li><code>status</code> <span class="api-optional">(optionnel)</span> — filtre exact sur le statut.</li>
+                            <li><code>limit</code> <span class="api-optional">(optionnel, défaut 20, max 100)</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ===== STATUTS ===== -->
+                <div class="legal-block" id="statuts">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-signpost-split-fill"></i></div>
+                        <h2>Statuts de commande</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <div class="api-table-wrap">
+                            <table class="api-table">
+                                <tbody>
+                                    <tr><td><span class="api-status-dot api-status-pending"></span><code>PENDING</code></td><td>Reçue, en attente de validation/tarification</td></tr>
+                                    <tr><td><span class="api-status-dot api-status-progress"></span><code>ACCEPTED</code></td><td>Devis / prix accepté</td></tr>
+                                    <tr><td><span class="api-status-dot api-status-progress"></span><code>ASSIGNED</code></td><td>Un livreur a été assigné</td></tr>
+                                    <tr><td><span class="api-status-dot api-status-progress"></span><code>IN_PROGRESS</code></td><td>Livraison en cours</td></tr>
+                                    <tr><td><span class="api-status-dot api-status-success"></span><code>COMPLETED</code></td><td>Livrée</td></tr>
+                                    <tr><td><span class="api-status-dot api-status-error"></span><code>CANCELLED</code></td><td>Annulée</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== WEBHOOKS ===== -->
+                <div class="legal-block" id="webhooks">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-broadcast"></i></div>
+                        <h2>Webhooks — notifications de statut</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <p>Si une <code>webhookUrl</code> a été configurée pour votre compte, Camelia Logistics envoie un <code>POST</code> signé à chaque changement de statut important (<code>ACCEPTED</code>, <code>ASSIGNED</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, <code>CANCELLED</code>).</p>
+
+                        <div class="api-hmac-visual reveal-up">
+                            <div class="api-hmac-node"><i class="bi bi-diagram-3-fill"></i>Camelia</div>
+                            <i class="bi bi-arrow-right api-hmac-arrow"></i>
+                            <div class="api-hmac-lock"><i class="bi bi-lock-fill"></i></div>
+                            <i class="bi bi-arrow-right api-hmac-arrow"></i>
+                            <div class="api-hmac-node"><i class="bi bi-building"></i>Votre serveur</div>
+                        </div>
+
+                        <h3>Payload</h3>
+                        <div class="cl-code-block">
+                            <div class="cl-code-block-head">
+                                <span>POST — application/json</span>
+                                <button class="cl-copy-btn" type="button"><i class="bi bi-clipboard"></i> Copier</button>
+                            </div>
+                            <pre><code>{
+  <span class="tok-key">"event"</span>: <span class="tok-str">"order.status_changed"</span>,
+  <span class="tok-key">"orderId"</span>: <span class="tok-str">"f3c1a9..."</span>,
+  <span class="tok-key">"partnerOrderRef"</span>: <span class="tok-str">"CMD-2026-00042"</span>,
+  <span class="tok-key">"status"</span>: <span class="tok-str">"ASSIGNED"</span>,
+  <span class="tok-key">"priceQuote"</span>: <span class="tok-num">4500</span>,
+  <span class="tok-key">"timestamp"</span>: <span class="tok-str">"2026-08-04T10:20:00.000Z"</span>
+}</code></pre>
+                        </div>
+
+                        <h3>Vérification de la signature</h3>
+                        <p>Chaque requête contient un en-tête <code>X-Camelia-Signature</code> = HMAC-SHA256(corps JSON brut, <code>webhookSecret</code>), encodé en hexadécimal :</p>
+                        <div class="cl-code-block">
+                            <div class="cl-code-block-head">
+                                <span>Node.js</span>
+                                <button class="cl-copy-btn" type="button"><i class="bi bi-clipboard"></i> Copier</button>
+                            </div>
+                            <pre><code><span class="tok-key">const</span> crypto = require(<span class="tok-str">'crypto'</span>);
+
+<span class="tok-key">function</span> isValidSignature(rawBody, signatureHeader, webhookSecret) {
+  <span class="tok-key">const</span> expected = crypto.createHmac(<span class="tok-str">'sha256'</span>, webhookSecret)
+    .update(rawBody).digest(<span class="tok-str">'hex'</span>);
+  <span class="tok-key">return</span> crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signatureHeader));
+}</code></pre>
+                        </div>
+
+                        <div class="legal-highlight">
+                            <i class="bi bi-info-circle"></i>
+                            <span>Répondez <code>2xx</code> rapidement (&lt; 5s). Camelia retente jusqu'à 3 fois en cas d'échec ou de timeout, puis abandonne — utilisez <code>GET /v1/orders/{id}</code> en secours si vous suspectez un événement manqué.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BONNES PRATIQUES ===== -->
+                <div class="legal-block" id="bonnes-pratiques">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-check2-circle"></i></div>
+                        <h2>Bonnes pratiques</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <ul>
+                            <li><strong>Idempotence :</strong> générez toujours un <code>partnerOrderRef</code> unique et stable — un renvoi réseau ne créera jamais de doublon.</li>
+                            <li><strong>Rotation de clé :</strong> en cas de doute sur une fuite, demandez une rotation immédiate ; aucune interruption de service si vous mettez à jour la clé dans la foulée.</li>
+                            <li><strong>Limites :</strong> 60 requêtes par minute par compte. Contactez-nous si votre volume dépasse quelques centaines de commandes par mois.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ===== DEVENIR PARTENAIRE ===== -->
+                <div class="legal-block" id="devenir-partenaire" style="margin-bottom:2rem;">
+                    <div class="legal-block-header">
+                        <div class="legal-block-icon"><i class="bi bi-handshake"></i></div>
+                        <h2>Devenir partenaire</h2>
+                    </div>
+                    <div class="legal-content-body">
+                        <p>Votre entreprise souhaite intégrer Camelia Logistics à son système de commande ? Écrivez-nous, une clé API et un accès à cette documentation vous seront transmis.</p>
+                        <div class="cl-hero-btns" style="margin-top:1.25rem;">
+                            <a href="mailto:camelialogisticss@gmail.com?subject=Devenir%20partenaire%20API" class="cl-btn-ghost">
+                                <i class="bi bi-envelope-fill"></i> Nous contacter
+                            </a>
+                            <a href="https://wa.me/237657519744" class="cl-btn-ghost" target="_blank" rel="noopener">
+                                <i class="bi bi-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Back home -->
+                <div class="legal-back">
+                    <a href="index.html" class="cl-btn-primary">
+                        <i class="bi bi-arrow-left"></i> Retour à l'accueil
+                    </a>
+                </div>
+
+            </div><!-- /col -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="cl-footer">
+    <div class="container">
+        <div class="cl-footer-top">
+            <div class="cl-footer-brand-col">
+                <div class="cl-footer-brand">
+                    <img src="image/logo.webp" alt="Logo Camelia Logistics" width="40" height="40" loading="lazy">
+                    <span>Camelia Logistics</span>
+                </div>
+                <p>Votre partenaire de confiance pour le transport au Cameroun.</p>
+                <div class="cl-socials">
+                    <a href="https://www.facebook.com/p/Camelia-logistics-100085180665945/" class="cl-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://wa.me/237657519744" class="cl-social" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="cl-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@camelia.logistics" class="cl-social" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#comment">Comment ça marche</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#download">Télécharger</a></li>
+                </ul>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Légal</h4>
+                <ul>
+                    <li><a href="legal.html#about">À propos</a></li>
+                    <li><a href="privacy-policy/index.html">Politique de confidentialité</a></li>
+                    <li><a href="terms-of-service/index.html">Conditions d'utilisation</a></li>
+                    <li><a href="account-deletion/index.html">Suppression de compte</a></li>
+                    <li><a href="support/index.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Développeurs</h4>
+                <ul>
+                    <li><a href="#auth">Authentification</a></li>
+                    <li><a href="#webhooks">Webhooks</a></li>
+                    <li><a href="#devenir-partenaire">Devenir partenaire</a></li>
+                </ul>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Contact</h4>
+                <ul class="cl-contact-list">
+                    <li><i class="bi bi-geo-alt-fill"></i> Entrée Casa, Douala, Cameroun</li>
+                    <li><i class="bi bi-telephone-fill"></i> +237 6 57 51 97 44</li>
+                    <li><i class="bi bi-envelope-fill"></i> camelialogisticss@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="cl-footer-bottom">
+            <span>&copy; <span id="currentYear">2026</span> <strong>Camelia Logistics SARL</strong>. Tous droits réservés.</span>
+            <span>Design par <strong>Maximilien Pele</strong></span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+// ---- Bascule theme clair/sombre ----
+const themeToggle = document.getElementById("themeToggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("cl-theme", next); } catch (e) {}
+  });
+}
+
+// ---- Sidenav actif au scroll ----
+const legalBlocks = document.querySelectorAll('.legal-block');
+const sideLinks = document.querySelectorAll('.legal-sidenav ul li a');
+window.addEventListener('scroll', () => {
+    let cur = '';
+    legalBlocks.forEach(b => { if (window.scrollY >= b.offsetTop - 140) cur = b.id; });
+    sideLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+});
+
+// ---- Reveal on scroll ----
+const revealEls = document.querySelectorAll('.reveal-up');
+const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => obs.observe(el));
+
+// ---- Copier le code ----
+document.querySelectorAll('.cl-copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const codeEl = btn.closest('.cl-code-block').querySelector('code');
+        const text = codeEl.innerText;
+        try {
+            await navigator.clipboard.writeText(text);
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check2"></i> Copié';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.innerHTML = original; btn.classList.remove('copied'); }, 1800);
+        } catch (e) {
+            btn.innerHTML = '<i class="bi bi-x"></i> Échec';
+        }
+    });
+});
+
+const yearEl = document.getElementById('currentYear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,501 +1,328 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('cl-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informations légales | Camélia Logistics</title>
-    <link rel="icon" type="image/x-icon" href="image/logo.webp">
+    <title>À propos & mentions légales | Camelia Logistics</title>
+    <meta name="description"
+        content="À propos de Camelia Logistics SARL, mentions légales, et accès à la politique de confidentialité, aux conditions d'utilisation, à la suppression de compte et au support.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://camelialogistics.com/legal.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Camelia Logistics">
+    <meta property="og:title" content="À propos & mentions légales | Camelia Logistics">
+    <meta property="og:description"
+        content="À propos de Camelia Logistics SARL et mentions légales — retrouvez la politique de confidentialité, les CGU, la suppression de compte et le support sur leurs pages dédiées.">
+    <meta property="og:image" content="https://camelialogistics.com/image/logo.webp">
+    <meta property="og:url" content="https://camelialogistics.com/legal.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/webp" href="image/logo.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* ===== LEGAL PAGE STYLES ===== */
-        .legal-wrap {
-            background: var(--cl-dark);
-            min-height: 100vh;
-            padding-top: 6rem;
-        }
-
-        /* Side nav */
-        .legal-sidenav {
-            position: sticky;
-            top: 6.5rem;
-            background: var(--cl-card);
-            border: 1px solid var(--cl-border);
-            border-radius: var(--cl-radius);
-            padding: 1.5rem 1.25rem;
-        }
-        .legal-sidenav-title {
-            font-family: var(----font-mono, 'Space Mono', monospace);
-            font-size: .7rem;
-            letter-spacing: .2em;
-            text-transform: uppercase;
-            color: var(--cl-green);
-            margin-bottom: 1.25rem;
-            font-family: 'Space Mono', monospace;
-        }
-        .legal-sidenav ul { padding: 0; list-style: none; }
-        .legal-sidenav ul li { margin-bottom: .35rem; }
-        .legal-sidenav ul li a {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: .88rem;
-            color: var(--cl-muted);
-            padding: .55rem .75rem;
-            border-radius: 8px;
-            transition: all .25s ease;
-            border-left: 2px solid transparent;
-        }
-        .legal-sidenav ul li a:hover,
-        .legal-sidenav ul li a.active {
-            color: var(--cl-green);
-            background: rgba(38,224,127,0.07);
-            border-left-color: var(--cl-green);
-        }
-        .legal-sidenav ul li a i { font-size: 1rem; }
-
-        /* Page header */
-        .legal-page-header {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--cl-border);
-            margin-bottom: 3rem;
-        }
-        .legal-page-header .cl-overline { margin-bottom: .6rem; }
-        .legal-page-header h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            color: var(--cl-white);
-            letter-spacing: .04em;
-            line-height: 1;
-            margin-bottom: .75rem;
-        }
-        .legal-page-header p {
-            font-size: .95rem;
-            color: var(--cl-muted);
-        }
-        .legal-date {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(38,224,127,0.08);
-            border: 1px solid rgba(38,224,127,0.2);
-            color: var(--cl-green);
-            font-family: 'Space Mono', monospace;
-            font-size: .72rem;
-            letter-spacing: .1em;
-            padding: .35rem .85rem;
-            border-radius: 50px;
-            margin-top: 1rem;
-        }
-
-        /* Content blocks */
-        .legal-block {
-            margin-bottom: 5rem;
-            scroll-margin-top: 6rem;
-        }
-        .legal-block-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 2rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 1px solid var(--cl-border);
-        }
-        .legal-block-icon {
-            width: 52px; height: 52px;
-            background: rgba(38,224,127,0.1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--cl-green);
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-        .legal-block-header h2 {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--cl-white);
-            margin: 0;
-        }
-        .legal-content-body h3 {
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: var(--cl-white);
-            margin: 1.75rem 0 .65rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .legal-content-body h3::before {
-            content: '';
-            display: inline-block;
-            width: 14px; height: 2px;
-            background: var(--cl-green);
-            border-radius: 1px;
-            flex-shrink: 0;
-        }
-        .legal-content-body p {
-            font-size: .95rem;
-            color: var(--cl-muted);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-        .legal-content-body a {
-            color: var(--cl-green);
-            text-decoration: underline;
-            text-decoration-color: rgba(38,224,127,0.3);
-            text-underline-offset: 3px;
-        }
-        .legal-content-body a:hover { text-decoration-color: var(--cl-green); }
-        .legal-content-body ul, .legal-content-body ol {
-            padding-left: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        .legal-content-body li {
-            font-size: .95rem;
-            color: var(--cl-muted);
-            line-height: 1.8;
-            margin-bottom: .4rem;
-            position: relative;
-        }
-        .legal-content-body ul li::marker { color: var(--cl-green); }
-        .legal-content-body strong { color: var(--cl-text); font-weight: 600; }
-        .legal-info-card {
-            background: var(--cl-card);
-            border: 1px solid var(--cl-border);
-            border-radius: var(--cl-radius);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            line-height: 1.8;
-            font-size: .93rem;
-            color: var(--cl-text);
-        }
-        .legal-info-card p { margin: 0; color: var(--cl-text); }
-        .legal-highlight {
-            background: rgba(38,224,127,0.06);
-            border: 1px solid rgba(38,224,127,0.15);
-            border-radius: 10px;
-            padding: 1.25rem 1.5rem;
-            margin: 1.5rem 0;
-            font-size: .93rem;
-            color: var(--cl-text);
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-        .legal-highlight i { color: var(--cl-green); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-
-        /* Back button */
-        .legal-back {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--cl-border);
-        }
-
-        /* Footer same as main */
-        @media (max-width: 991px) {
-            .legal-sidenav { display: none; }
-        }
-    </style>
 </head>
+
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="cl-navbar scrolled" id="navbar">
-    <div class="container d-flex align-items-center justify-content-between">
-        <a class="cl-brand" href="index.html">
-            <img src="image/logo.webp" alt="Logo Camélia Logistics">
-            <span>Camélia<em>Logistics</em></span>
-        </a>
-        <a href="index.html" class="cl-btn-ghost" style="padding:.55rem 1.3rem;font-size:.9rem;border-radius:50px;">
-            <i class="bi bi-arrow-left"></i> Retour à l'accueil
-        </a>
-    </div>
-</nav>
-
-<!-- ===== MAIN LEGAL CONTENT ===== -->
-<div class="legal-wrap">
-    <div class="container">
-
-        <!-- Page header -->
-        <div class="legal-page-header">
-            <span class="cl-overline">Documentation officielle</span>
-            <h1>Informations<br><span class="cl-accent-word">légales</span></h1>
-            <p>Mentions légales, politique de confidentialité, conditions d'utilisation et informations sur Camélia Logistics.</p>
-            <div class="legal-date"><i class="bi bi-calendar3"></i> Dernière mise à jour : Janvier 2025</div>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="cl-navbar scrolled" id="navbar">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="cl-brand" href="index.html">
+                <img src="image/logo.webp" alt="Logo Camelia Logistics" width="42" height="42">
+                <span>Camelia<em>Logistics</em></span>
+            </a>
+            <div style="display:flex;align-items:center;gap:.75rem;">
+                <button class="cl-theme-toggle" id="themeToggle" type="button"
+                    aria-label="Basculer entre thème clair et sombre">
+                    <i class="bi bi-moon-stars-fill icon-light"></i>
+                    <i class="bi bi-sun-fill icon-dark"></i>
+                </button>
+                <a href="index.html" class="cl-btn-ghost"
+                    style="padding:.55rem 1.3rem;font-size:.9rem;border-radius:50px;">
+                    <i class="bi bi-arrow-left"></i> Retour à l'accueil
+                </a>
+            </div>
         </div>
+    </nav>
 
-        <div class="row">
-            <!-- Sidenav -->
-            <div class="col-lg-3">
-                <nav class="legal-sidenav">
-                    <div class="legal-sidenav-title">Sommaire</div>
-                    <ul>
-                        <li><a href="#about"><i class="bi bi-info-circle"></i> À propos</a></li>
-                        <li><a href="#mentions-legales"><i class="bi bi-file-text"></i> Mentions légales</a></li>
-                        <li><a href="#confidentialite"><i class="bi bi-shield-lock"></i> Confidentialité</a></li>
-                        <li><a href="#cgu"><i class="bi bi-journal-check"></i> Conditions d'utilisation</a></li>
-                    </ul>
-                </nav>
+    <!-- ===== MAIN LEGAL CONTENT ===== -->
+    <div class="legal-wrap">
+        <div class="container">
+
+            <!-- Page header -->
+            <div class="legal-page-header">
+                <span class="cl-overline">Documentation officielle</span>
+                <h1>À propos &amp;<br><span class="cl-accent-word">mentions légales</span></h1>
+                <p>Qui nous sommes, les mentions légales de Camelia Logistics SARL, et l'accès à tous nos documents de conformité.</p>
+                <div class="legal-date"><i class="bi bi-calendar3"></i> Dernière mise à jour : Août 2026</div>
             </div>
 
-            <!-- Content -->
-            <div class="col-lg-9">
-
-                <!-- ===== À PROPOS ===== -->
-                <div class="legal-block" id="about">
-                    <div class="legal-block-header">
-                        <div class="legal-block-icon"><i class="bi bi-info-circle-fill"></i></div>
-                        <h2>À propos de Camélia Logistics</h2>
-                    </div>
-                    <div class="legal-content-body">
-                        <p>
-                            <strong>Camélia Logistics</strong> est une start-up camerounaise fondée en 2024, dont la mission est de révolutionner le transport de marchandises au Cameroun en le rendant aussi simple, rapide et transparent qu'une commande en ligne. Notre plateforme technologique connecte les particuliers et les professionnels à un réseau de transporteurs vérifiés.
-                        </p>
-                        <h3>Notre mission</h3>
-                        <p>Rendre le transport accessible, fiable et transparent pour tous. Grâce à notre application, il n'est plus nécessaire de passer des heures à chercher un véhicule disponible : décrivez votre besoin, choisissez le type de véhicule adapté et recevez des offres en temps réel depuis votre téléphone.</p>
-                        <h3>Ce qui nous différencie</h3>
+            <div class="row">
+                <!-- Sidenav -->
+                <div class="col-lg-3">
+                    <nav class="legal-sidenav">
+                        <div class="legal-sidenav-title">Sommaire</div>
                         <ul>
-                            <li><strong>Technologie temps réel :</strong> Algorithmes d'optimisation de trajets pour des livraisons plus rapides.</li>
-                            <li><strong>Sécurité garantie :</strong> Vérification rigoureuse du profil de chaque transporteur partenaire.</li>
-                            <li><strong>Économie locale :</strong> Une solution 100% camerounaise, conçue pour booster le commerce local et créer de l'emploi.</li>
-                            <li><strong>Tarification juste :</strong> Un système de prix transparent, calculé équitablement selon la distance et le type de chargement.</li>
+                            <li><a href="#about"><i class="bi bi-info-circle"></i> À propos</a></li>
+                            <li><a href="#mentions-legales"><i class="bi bi-file-text"></i> Mentions légales</a></li>
+                            <li><a href="#autres-documents"><i class="bi bi-folder2-open"></i> Autres documents</a></li>
                         </ul>
-                        <h3>Notre équipe</h3>
-                        <p>Pilotée par des passionnés de technologie et d'innovation basés à Douala, notre équipe travaille chaque jour pour faire de Camélia Logistics la référence du transport sécurisé en Afrique centrale.</p>
-                    </div>
+                    </nav>
                 </div>
 
-                <!-- ===== MENTIONS LÉGALES ===== -->
-                <div class="legal-block" id="mentions-legales">
-                    <div class="legal-block-header">
-                        <div class="legal-block-icon"><i class="bi bi-file-earmark-text-fill"></i></div>
-                        <h2>Mentions légales</h2>
-                    </div>
-                    <div class="legal-content-body">
-                        <p>Conformément aux dispositions légales en vigueur au Cameroun relatives à l'information dans le domaine du commerce électronique, nous portons à la connaissance des utilisateurs les informations suivantes :</p>
+                <!-- Content -->
+                <div class="col-lg-9">
 
-                        <h3>Éditeur de la plateforme</h3>
-                        <div class="legal-info-card">
+                    <!-- ===== À PROPOS ===== -->
+                    <div class="legal-block" id="about">
+                        <div class="legal-block-header">
+                            <div class="legal-block-icon"><i class="bi bi-info-circle-fill"></i></div>
+                            <h2>À propos de Camelia Logistics</h2>
+                        </div>
+                        <div class="legal-content-body">
                             <p>
-                                <strong>Camélia Logistics SARL</strong><br>
-                                Société à Responsabilité Limitée de droit camerounais<br>
-                                Siège social : Entrée Casa, Douala, Cameroun<br>
-                                Téléphone : <a href="tel:+237657519744">+237 6 57 51 97 44</a><br>
-                                Email : <a href="mailto:camelialogisticss@gmail.com">camelialogisticss@gmail.com</a>
+                                <strong>Camelia Logistics</strong> est une start-up camerounaise fondée en 2024, dont la
+                                mission est de révolutionner le transport de marchandises au Cameroun en le rendant
+                                aussi simple, rapide et transparent qu'une commande en ligne. Notre plateforme
+                                technologique connecte les particuliers et les professionnels à un réseau de
+                                transporteurs vérifiés.
                             </p>
+                            <h3>Notre mission</h3>
+                            <p>Rendre le transport accessible, fiable et transparent pour tous. Grâce à notre
+                                application, il n'est plus nécessaire de passer des heures à chercher un véhicule
+                                disponible : décrivez votre besoin, choisissez le type de véhicule adapté et recevez des
+                                offres en temps réel depuis votre téléphone.</p>
+                            <h3>Ce qui nous différencie</h3>
+                            <ul>
+                                <li><strong>Technologie temps réel :</strong> Algorithmes d'optimisation de trajets pour
+                                    des livraisons plus rapides.</li>
+                                <li><strong>Sécurité garantie :</strong> Vérification rigoureuse du profil de chaque
+                                    transporteur partenaire.</li>
+                                <li><strong>Économie locale :</strong> Une solution 100% camerounaise, conçue pour
+                                    booster le commerce local et créer de l'emploi.</li>
+                                <li><strong>Tarification juste :</strong> Un système de prix transparent, calculé
+                                    équitablement selon la distance et le type de chargement.</li>
+                            </ul>
+                            <h3>Notre équipe</h3>
+                            <p>Pilotée par des passionnés de technologie et d'innovation basés à Douala, notre équipe
+                                travaille chaque jour pour faire de Camelia Logistics la référence du transport sécurisé
+                                en Afrique centrale.</p>
                         </div>
-
-                        <h3>Directeur de la publication</h3>
-                        <p><strong>Monsieur Abraham</strong>, Fondateur et Directeur Général de Camélia Logistics SARL, est le responsable de la publication du présent site web et de l'application mobile.</p>
-
-                        <h3>Hébergement</h3>
-                        <p>La vitrine web est hébergée par <strong>GitHub Pages</strong> (GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA — <a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a>). L'infrastructure de données applicatives est sécurisée via <strong>Google Firebase</strong> (Google LLC).</p>
-
-                        <h3>Propriété intellectuelle</h3>
-                        <p>Le nom <em>"Camélia Logistics"</em>, son logotype, la charte graphique, le code source de l'application et l'ensemble des contenus (textes, images, vidéos) sont la propriété exclusive de Camélia Logistics SARL ou de ses partenaires autorisés. Toute reproduction, représentation, modification, publication ou adaptation — même partielle — sans autorisation écrite préalable est strictement interdite et constitue une contrefaçon sanctionnée par la loi camerounaise sur la propriété intellectuelle.</p>
-
-                        <h3>Limitation de responsabilité</h3>
-                        <p>Camélia Logistics met tout en œuvre pour assurer l'exactitude des informations publiées sur ses supports digitaux. Toutefois, la société ne saurait être tenue responsable d'éventuelles erreurs, omissions ou d'une indisponibilité temporaire des services. Les transporteurs partenaires sont des prestataires indépendants ; Camélia Logistics intervient exclusivement en qualité d'intermédiaire technique de mise en relation.</p>
-
-                        <h3>Droit applicable</h3>
-                        <p>Les présentes mentions légales sont soumises au droit camerounais. Tout litige relatif à leur interprétation ou à leur exécution relève de la compétence exclusive des tribunaux compétents de Douala, Cameroun.</p>
                     </div>
-                </div>
 
-                <!-- ===== CONFIDENTIALITÉ ===== -->
-                <div class="legal-block" id="confidentialite">
-                    <div class="legal-block-header">
-                        <div class="legal-block-icon"><i class="bi bi-shield-lock-fill"></i></div>
-                        <h2>Politique de confidentialité</h2>
-                    </div>
-                    <div class="legal-content-body">
-                        <div class="legal-highlight">
-                            <i class="bi bi-shield-check"></i>
-                            <span>Chez Camélia Logistics, la protection de vos données personnelles est une priorité absolue. Cette politique décrit de manière transparente quelles informations nous collectons, pourquoi, comment nous les utilisons et comment vous pouvez exercer vos droits.</span>
+                    <!-- ===== MENTIONS LÉGALES ===== -->
+                    <div class="legal-block" id="mentions-legales">
+                        <div class="legal-block-header">
+                            <div class="legal-block-icon"><i class="bi bi-file-earmark-text-fill"></i></div>
+                            <h2>Mentions légales</h2>
                         </div>
+                        <div class="legal-content-body">
+                            <p>Conformément aux dispositions légales en vigueur au Cameroun relatives à l'information
+                                dans le domaine du commerce électronique, nous portons à la connaissance des
+                                utilisateurs les informations suivantes :</p>
 
-                        <h3>Responsable du traitement</h3>
-                        <p>Le responsable du traitement des données est <strong>Camélia Logistics SARL</strong>, dont les coordonnées complètes figurent dans les mentions légales ci-dessus.</p>
+                            <h3>Éditeur de la plateforme</h3>
+                            <div class="legal-info-card">
+                                <p>
+                                    <strong>Camelia Logistics SARL</strong><br>
+                                    Société à Responsabilité Limitée de droit camerounais<br>
+                                    Siège social : Entrée Casa, Douala, Cameroun<br>
+                                    Téléphone : <a href="tel:+237657519744">+237 6 57 51 97 44</a><br>
+                                    Email : <a href="mailto:camelialogisticss@gmail.com">camelialogisticss@gmail.com</a>
+                                </p>
+                            </div>
 
-                        <h3>Données collectées</h3>
-                        <p>Dans le cadre de la fourniture de nos services, nous pouvons être amenés à collecter les catégories de données suivantes :</p>
-                        <ul>
-                            <li><strong>Données d'identification :</strong> Nom, prénom, adresse email, numéro de téléphone.</li>
-                            <li><strong>Données de localisation :</strong> Localisation précise (avec votre consentement explicite) pour le suivi des courses en temps réel. Pour les livreurs partenaires, cette donnée peut être collectée en arrière-plan lors d'une course active.</li>
-                            <li><strong>Données de transaction :</strong> Historique des demandes de transport et détails des paiements (traités via des prestataires certifiés).</li>
-                            <li><strong>Données techniques :</strong> Adresse IP, journaux de connexion, identifiant de l'appareil.</li>
-                            <li><strong>Sécurité applicative :</strong> Nous utilisons <strong>Firebase App Check</strong> (Play Integrity / App Attest) pour protéger votre compte contre la fraude et les accès non autorisés.</li>
-                        </ul>
+                            <h3>Directeur de la publication</h3>
+                            <p><strong>Monsieur Abraham</strong>, Fondateur et Directeur Général de Camelia Logistics
+                                SARL, est le responsable de la publication du présent site web et de l'application
+                                mobile.</p>
 
-                        <h3>Finalités du traitement</h3>
-                        <p>Vos données sont utilisées pour :</p>
-                        <ul>
-                            <li>La gestion et l'exécution de vos demandes de transport ;</li>
-                            <li>La mise en relation avec les transporteurs partenaires ;</li>
-                            <li>Le suivi en temps réel de vos livraisons (calcul ETA, preuve de livraison) ;</li>
-                            <li>La sécurisation des transactions financières ;</li>
-                            <li>L'amélioration continue de nos services et de l'expérience utilisateur ;</li>
-                            <li>Le respect de nos obligations légales et réglementaires ;</li>
-                            <li>L'envoi de communications commerciales (uniquement avec votre consentement préalable).</li>
-                        </ul>
+                            <h3>Hébergement</h3>
+                            <p>La vitrine web est hébergée par <strong>GitHub Pages</strong> (GitHub Inc., 88 Colin P.
+                                Kelly Jr. Street, San Francisco, CA 94107, USA — <a href="https://pages.github.com"
+                                    target="_blank" rel="noopener">pages.github.com</a>). L'infrastructure de données
+                                applicatives est sécurisée via <strong>Google Firebase</strong> (Google LLC).</p>
 
-                        <h3>Partage des données</h3>
-                        <p>Camélia Logistics ne vend ni ne loue vos données personnelles à des tiers. Elles peuvent être communiquées uniquement dans les cas suivants :</p>
-                        <ul>
-                            <li>Aux transporteurs partenaires sélectionnés pour l'exécution de votre commande ;</li>
-                            <li>Aux prestataires techniques sous-traitants (paiement, hébergement, analyse applicative) dans le strict cadre de leur mission ;</li>
-                            <li>Aux autorités compétentes en cas d'obligation légale ou réglementaire.</li>
-                        </ul>
+                            <h3>Propriété intellectuelle</h3>
+                            <p>Le nom <em>"Camelia Logistics"</em>, son logotype, la charte graphique, le code source de
+                                l'application et l'ensemble des contenus (textes, images, vidéos) sont la propriété
+                                exclusive de Camelia Logistics SARL ou de ses partenaires autorisés. Toute reproduction,
+                                représentation, modification, publication ou adaptation — même partielle — sans
+                                autorisation écrite préalable est strictement interdite et constitue une contrefaçon
+                                sanctionnée par la loi camerounaise sur la propriété intellectuelle.</p>
 
-                        <h3>Durée de conservation</h3>
-                        <p>Vos données sont conservées pendant la durée strictement nécessaire à la réalisation des finalités décrites, et au maximum <strong>3 ans</strong> après votre dernière interaction active avec la plateforme, sauf obligation légale contraire.</p>
+                            <h3>Limitation de responsabilité</h3>
+                            <p>Camelia Logistics met tout en œuvre pour assurer l'exactitude des informations publiées
+                                sur ses supports digitaux. Toutefois, la société ne saurait être tenue responsable
+                                d'éventuelles erreurs, omissions ou d'une indisponibilité temporaire des services. Les
+                                transporteurs partenaires sont des prestataires indépendants ; Camelia Logistics
+                                intervient exclusivement en qualité d'intermédiaire technique de mise en relation.</p>
 
-                        <h3>Sécurité des paiements</h3>
-                        <p>Toutes les transactions financières sont traitées par des passerelles de paiement certifiées et conformes aux normes de sécurité en vigueur. Aucune coordonnée bancaire ou financière n'est stockée sur les propres serveurs de Camélia Logistics.</p>
-
-                        <h3>Vos droits</h3>
-                        <p>Vous disposez des droits suivants concernant vos données personnelles :</p>
-                        <ul>
-                            <li><strong>Droit d'accès :</strong> Obtenir une copie des données vous concernant.</li>
-                            <li><strong>Droit de rectification :</strong> Corriger des données inexactes ou incomplètes.</li>
-                            <li><strong>Droit à l'effacement :</strong> Demander la suppression complète de votre compte et de vos données.</li>
-                            <li><strong>Droit d'opposition :</strong> Vous opposer au traitement de vos données à des fins commerciales.</li>
-                            <li><strong>Droit à la portabilité :</strong> Recevoir vos données dans un format structuré et lisible.</li>
-                        </ul>
-                        <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:camelialogisticss@gmail.com">camelialogisticss@gmail.com</a>. Nous vous répondrons dans un délai maximum de 30 jours.</p>
-
-                        <h3>Cookies</h3>
-                        <p>Notre site vitrine utilise un nombre minimal de cookies techniques nécessaires au bon fonctionnement de la navigation. Aucun cookie publicitaire ou de traçage tiers n'est déposé sans votre consentement.</p>
-                    </div>
-                </div>
-
-                <!-- ===== CGU ===== -->
-                <div class="legal-block" id="cgu">
-                    <div class="legal-block-header">
-                        <div class="legal-block-icon"><i class="bi bi-journal-check"></i></div>
-                        <h2>Conditions générales d'utilisation</h2>
-                    </div>
-                    <div class="legal-content-body">
-                        <div class="legal-highlight">
-                            <i class="bi bi-info-circle"></i>
-                            <span>En utilisant l'application ou le site web Camélia Logistics, vous acceptez les présentes conditions générales d'utilisation. Veuillez les lire attentivement avant toute utilisation de nos services.</span>
+                            <h3>Droit applicable</h3>
+                            <p>Les présentes mentions légales sont soumises au droit camerounais. Tout litige relatif à
+                                leur interprétation ou à leur exécution relève de la compétence exclusive des tribunaux
+                                compétents de Douala, Cameroun.</p>
                         </div>
-
-                        <h3>1. Objet</h3>
-                        <p>Les présentes CGU ont pour objet de définir les conditions d'accès et d'utilisation de la plateforme Camélia Logistics (application mobile et site web), permettant la mise en relation entre des particuliers ou entreprises souhaitant transporter des marchandises et des transporteurs indépendants partenaires.</p>
-
-                        <h3>2. Accès au service</h3>
-                        <p>L'accès au service est réservé aux personnes âgées d'au moins 18 ans et disposant d'un téléphone compatible ou d'un accès internet. L'inscription est gratuite et nécessite la création d'un compte avec des informations exactes et à jour.</p>
-
-                        <h3>3. Obligations de l'utilisateur</h3>
-                        <p>L'utilisateur s'engage à :</p>
-                        <ul>
-                            <li>Fournir des informations exactes lors de son inscription et de ses demandes ;</li>
-                            <li>Ne pas utiliser la plateforme à des fins illicites ou contraires à l'ordre public ;</li>
-                            <li>Ne pas transporter de marchandises interdites (substances illicites, matières dangereuses non déclarées, etc.) ;</li>
-                            <li>Régler les prestations dans les délais convenus via les moyens de paiement proposés ;</li>
-                            <li>Respecter les transporteurs partenaires et leur propriété.</li>
-                        </ul>
-
-                        <h3>4. Rôle de Camélia Logistics</h3>
-                        <p>Camélia Logistics agit en qualité d'intermédiaire technique et ne fournit pas elle-même les prestations de transport. La responsabilité contractuelle du transport incombe au transporteur indépendant sélectionné. Camélia Logistics ne saurait être tenue responsable des dommages causés à des tiers ou aux marchandises du fait d'un transporteur partenaire.</p>
-
-                        <h3>5. Tarifs et paiements</h3>
-                        <p>Les tarifs sont calculés automatiquement selon la distance, le type de véhicule et la nature du chargement. Tout prix affiché est définitif et inclut la commission de la plateforme. Les paiements sont sécurisés et traités par des prestataires certifiés.</p>
-
-                        <h3>6. Annulations</h3>
-                        <p>Toute annulation d'une course confirmée peut entraîner des frais selon les conditions en vigueur dans l'application au moment de la réservation. Ces conditions sont affichées clairement avant toute confirmation.</p>
-
-                        <h3>7. Modification des CGU</h3>
-                        <p id="right-to-delete">Droit à l'effacement : Vous pouvez demander la suppression complète de votre compte et de toutes les données associées (nom, téléphone, historique de commandes, photos de profil) directement depuis les paramètres de 
-                            l'application ou en nous contactant à camelialogisticss@gmail.com. Dès réception de votre demande, vos données personnelles identifiables sont supprimées de nos bases de données actives sous 48h. Cependant, certaines données anonymisées ou agrégées (statistiques d'utilisation, données de performance) peuvent être conservées à des fins d'analyse et d'amélioration du service, sans possibilité de vous identifier personnellement. Nous nous engageons à ne jamais vendre ou partager vos données personnelles avec des tiers à des fins commerciales.</p>
-                        <h3>8. Résiliation</h3>
-                        <p>Tout utilisateur peut supprimer son compte à tout moment depuis l'application ou en nous contactant par email. Camélia Logistics se réserve le droit de suspendre ou résilier l'accès à tout utilisateur ne respectant pas les présentes conditions.</p>
-
-                        <h3>9. Droit applicable et juridiction compétente</h3>
-                        <p>Les présentes CGU sont soumises au droit camerounais. En cas de litige, les parties s'engagent à rechercher une solution amiable. À défaut, le tribunal compétent de Douala sera seul compétent.</p>
                     </div>
-                </div>
 
-                <!-- Back home -->
-                <div class="legal-back">
-                    <a href="index.html" class="cl-btn-primary">
-                        <i class="bi bi-arrow-left"></i> Retour à l'accueil
-                    </a>
-                </div>
+                    <!-- ===== AUTRES DOCUMENTS ===== -->
+                    <div class="legal-block" id="autres-documents">
+                        <div class="legal-block-header">
+                            <div class="legal-block-icon"><i class="bi bi-folder2-open"></i></div>
+                            <h2>Autres documents</h2>
+                        </div>
+                        <div class="legal-content-body">
+                            <p>La politique de confidentialité, les conditions générales d'utilisation, la procédure de suppression de compte et le support ont chacun leur propre page, avec une adresse stable :</p>
+                            <div class="legal-doc-grid">
+                                <a href="privacy-policy/index.html" class="legal-doc-card">
+                                    <i class="bi bi-shield-lock-fill"></i>
+                                    <div>
+                                        <strong>Politique de confidentialité</strong>
+                                        <span>Données collectées, finalités, vos droits</span>
+                                    </div>
+                                </a>
+                                <a href="terms-of-service/index.html" class="legal-doc-card">
+                                    <i class="bi bi-journal-check"></i>
+                                    <div>
+                                        <strong>Conditions d'utilisation</strong>
+                                        <span>Règles d'accès et d'usage du service</span>
+                                    </div>
+                                </a>
+                                <a href="account-deletion/index.html" class="legal-doc-card">
+                                    <i class="bi bi-trash3-fill"></i>
+                                    <div>
+                                        <strong>Suppression de compte</strong>
+                                        <span>Depuis l'application ou par email</span>
+                                    </div>
+                                </a>
+                                <a href="support/index.html" class="legal-doc-card">
+                                    <i class="bi bi-headset"></i>
+                                    <div>
+                                        <strong>Support</strong>
+                                        <span>Contact et centre d'aide</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-            </div><!-- /col -->
-        </div><!-- /row -->
-    </div><!-- /container -->
-</div>
+                    <!-- Back home -->
+                    <div class="legal-back">
+                        <a href="index.html" class="cl-btn-primary">
+                            <i class="bi bi-arrow-left"></i> Retour à l'accueil
+                        </a>
+                    </div>
 
-<!-- ===== FOOTER ===== -->
-<footer class="cl-footer">
-    <div class="container">
-        <div class="cl-footer-top">
-            <div class="cl-footer-brand-col">
-                <div class="cl-footer-brand">
-                    <img src="image/logo.webp" alt="Logo">
-                    <span>Camélia Logistics</span>
-                </div>
-                <p>Votre partenaire de confiance pour le transport au Cameroun.</p>
-                <div class="cl-socials">
-                    <a href="https://www.facebook.com/p/Camelia-logistics-100085180665945/" class="cl-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="https://wa.me/237657519744" class="cl-social" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-                    <a href="#" class="cl-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@camelia.logistics" class="cl-social" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-                </div>
-            </div>
-            <div class="cl-footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html#accueil">Accueil</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#comment">Comment ça marche</a></li>
-                    <li><a href="index.html#download">Télécharger</a></li>
-                </ul>
-            </div>
-            <div class="cl-footer-col">
-                <h4>Légal</h4>
-                <ul>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#mentions-legales">Mentions légales</a></li>
-                    <li><a href="#confidentialite">Confidentialité</a></li>
-                    <li><a href="#cgu">Conditions d'utilisation</a></li>
-                </ul>
-            </div>
-            <div class="cl-footer-col">
-                <h4>Contact</h4>
-                <ul class="cl-contact-list">
-                    <li><i class="bi bi-geo-alt-fill"></i> Entrée Casa, Douala, Cameroun</li>
-                    <li><i class="bi bi-telephone-fill"></i> +237 6 57 51 97 44</li>
-                    <li><i class="bi bi-envelope-fill"></i> camelialogisticss@gmail.com</li>
-                </ul>
-            </div>
-        </div>
-        <div class="cl-footer-bottom">
-            <span>&copy; 2024 <strong>Camélia Logistics SARL</strong>. Tous droits réservés.</span>
-            <span>Design par <strong>Maximilien Pele</strong></span>
-        </div>
+                </div><!-- /col -->
+            </div><!-- /row -->
+        </div><!-- /container -->
     </div>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-// Active sidenav on scroll
-const legalBlocks = document.querySelectorAll('.legal-block');
-const sideLinks = document.querySelectorAll('.legal-sidenav ul li a');
-window.addEventListener('scroll', () => {
-    let cur = '';
-    legalBlocks.forEach(b => { if (window.scrollY >= b.offsetTop - 140) cur = b.id; });
-    sideLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
-});
-</script>
+    <!-- ===== FOOTER ===== -->
+    <footer class="cl-footer">
+        <div class="container">
+            <div class="cl-footer-top">
+                <div class="cl-footer-brand-col">
+                    <div class="cl-footer-brand">
+                        <img src="image/logo.webp" alt="Logo Camelia Logistics" width="40" height="40" loading="lazy">
+                        <span>Camelia Logistics</span>
+                    </div>
+                    <p>Votre partenaire de confiance pour le transport au Cameroun.</p>
+                    <div class="cl-socials">
+                        <a href="https://www.facebook.com/p/Camelia-logistics-100085180665945/" class="cl-social"
+                            aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://wa.me/237657519744" class="cl-social" aria-label="WhatsApp"><i
+                                class="bi bi-whatsapp"></i></a>
+                        <a href="#" class="cl-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@camelia.logistics" class="cl-social" aria-label="TikTok"><i
+                                class="bi bi-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="cl-footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#accueil">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#comment">Comment ça marche</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="index.html#download">Télécharger</a></li>
+                    </ul>
+                </div>
+                <div class="cl-footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="privacy-policy/index.html">Politique de confidentialité</a></li>
+                        <li><a href="terms-of-service/index.html">Conditions d'utilisation</a></li>
+                        <li><a href="account-deletion/index.html">Suppression de compte</a></li>
+                        <li><a href="support/index.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="cl-footer-col">
+                    <h4>Développeurs</h4>
+                    <ul>
+                        <li><a href="api-partenaires.html"><i class="bi bi-code-slash"></i> API Partenaires</a></li>
+                        <li><a href="api-partenaires.html#webhooks"><i class="bi bi-broadcast"></i> Webhooks</a></li>
+                    </ul>
+                </div>
+                <div class="cl-footer-col">
+                    <h4>Contact</h4>
+                    <ul class="cl-contact-list">
+                        <li><i class="bi bi-geo-alt-fill"></i> Entrée Casa, Douala, Cameroun</li>
+                        <li><i class="bi bi-telephone-fill"></i> +237 6 57 51 97 44</li>
+                        <li><i class="bi bi-envelope-fill"></i> camelialogisticss@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cl-footer-bottom">
+                <span>&copy; <span id="currentYear">2026</span> <strong>Camelia Logistics SARL</strong>. Tous droits
+                    réservés.</span>
+                <span>Design par <strong>Maximilien Pele</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        // ---- Bascule theme clair/sombre ----
+        const themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                const root = document.documentElement;
+                const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                root.setAttribute("data-theme", next);
+                try { localStorage.setItem("cl-theme", next); } catch (e) { }
+            });
+        }
+
+        // Active sidenav on scroll
+        const legalBlocks = document.querySelectorAll('.legal-block');
+        const sideLinks = document.querySelectorAll('.legal-sidenav ul li a');
+        window.addEventListener('scroll', () => {
+            let cur = '';
+            legalBlocks.forEach(b => { if (window.scrollY >= b.offsetTop - 140) cur = b.id; });
+            sideLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+        });
+
+        const yearEl = document.getElementById('currentYear');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>

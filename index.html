@@ -2,14 +2,141 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        try {
+            var saved = localStorage.getItem('cl-theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camélia Logistics | Transport nouvelle génération au Cameroun</title>
-    <link rel="icon" type="image/x-icon" href="image/logo.webp">
+    <title>Camelia Logistics | Transport & livraison nouvelle génération au Cameroun</title>
+    <meta name="description" content="Camelia Logistics connecte particuliers et entreprises aux meilleurs transporteurs à Douala, Yaoundé et partout au Cameroun. Livraison urbaine, transport interurbain, déménagement et logistique pro avec suivi en temps réel.">
+    <meta name="keywords" content="logistique Cameroun, transport Douala, livraison Yaoundé, déménagement Cameroun, transport de marchandises, API logistique partenaire">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="Camelia Logistics">
+    <link rel="canonical" href="https://camelialogistics.com/">
+
+    <!-- Open Graph / Réseaux sociaux -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Camelia Logistics">
+    <meta property="og:locale" content="fr_CM">
+    <meta property="og:title" content="Camelia Logistics | Transport & livraison nouvelle génération au Cameroun">
+    <meta property="og:description" content="Colis, marchandises, déménagement : commandez un transporteur vérifié en un clic et suivez votre livraison en temps réel, partout au Cameroun.">
+    <meta property="og:image" content="https://camelialogistics.com/image/warehouse_09.webp">
+    <meta property="og:url" content="https://camelialogistics.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Camelia Logistics | Transport & livraison au Cameroun">
+    <meta name="twitter:description" content="Réservez un transporteur vérifié en un clic et suivez votre livraison en temps réel, partout au Cameroun.">
+    <meta name="twitter:image" content="https://camelialogistics.com/image/warehouse_09.webp">
+
+    <link rel="icon" type="image/webp" href="image/logo.webp">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Données structurées : identité de l'entreprise (SEO / Google Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Camelia Logistics",
+      "image": "https://camelialogistics.com/image/logo.webp",
+      "url": "https://camelialogistics.com/",
+      "telephone": "+237657519744",
+      "email": "camelialogisticss@gmail.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Entrée Casa",
+        "addressLocality": "Douala",
+        "addressCountry": "CM"
+      },
+      "areaServed": ["Douala", "Yaoundé", "Bafoussam", "Cameroun"],
+      "sameAs": [
+        "https://www.facebook.com/p/Camelia-logistics-100085180665945/",
+        "https://www.tiktok.com/@camelia.logistics",
+        "https://wa.me/237657519744"
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Livraison" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Déménagement" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Expédition" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stockage" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Transport international" } }
+      ]
+    }
+    </script>
+
+    <!-- Données structurées : application mobile -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Camelia Logistics",
+      "operatingSystem": "Android",
+      "applicationCategory": "TravelApplication",
+      "url": "https://play.google.com/store/apps/details?id=com.camelia.logistics",
+      "author": { "@type": "Organization", "name": "Camelia Logistics" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "XAF" }
+    }
+    </script>
+
+    <!-- Données structurées : FAQ (reprend la section #faq de la page) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne l'application Camelia Logistics ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Vous décrivez votre besoin (type de service, adresses, marchandise) depuis l'application, vous recevez une offre, vous confirmez et payez, puis vous suivez la livraison en temps réel jusqu'à sa remise." }
+        },
+        {
+          "@type": "Question",
+          "name": "Dans quelles villes Camelia Logistics est-elle disponible ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le service est actif à Douala, Yaoundé et Bafoussam, avec des livraisons interurbaines vers les principaux axes du Cameroun." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont calculés les tarifs ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le prix est calculé selon la distance, le type de véhicule et la nature du chargement, et affiché avant toute confirmation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Mes colis sont-ils en sécurité pendant le transport ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Chaque transporteur partenaire est vérifié avant son intégration au réseau, et vous pouvez suivre le trajet en temps réel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment suivre ma livraison en temps réel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Dès qu'un transporteur est assigné, l'écran de suivi de l'application affiche sa position et le statut de la course." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'application est-elle disponible sur iPhone ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Camelia Logistics est disponible dès maintenant sur Google Play. La version iOS (App Store) arrive bientôt." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment supprimer mon compte et mes données ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La suppression est possible directement depuis les paramètres de l'application, ou en contactant le support. Voir la page dédiée Suppression de compte." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment devenir transporteur partenaire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Contactez l'équipe via WhatsApp ou email avec vos informations (véhicule, zone d'activité) pour être accompagné dans l'intégration au réseau." }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -17,8 +144,8 @@
 <nav class="cl-navbar" id="navbar">
     <div class="container d-flex align-items-center justify-content-between">
         <a class="cl-brand" href="#accueil">
-            <img src="image/logo.webp" alt="Logo Camélia Logistics">
-            <span>Camélia<em>Logistics</em></span>
+            <img src="image/logo.webp" alt="Logo Camelia Logistics" width="42" height="42">
+            <span>Camelia<em>Logistics</em></span>
         </a>
         <button class="cl-burger" id="burgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -28,9 +155,17 @@
             <a href="#services" class="cl-nav-link">Services</a>
             <a href="#comment" class="cl-nav-link">Comment ça marche</a>
             <a href="#temoignages" class="cl-nav-link">Témoignages</a>
+            <a href="#faq" class="cl-nav-link">FAQ</a>
+            <a href="api-partenaires.html" class="cl-nav-link">
+                <i class="bi bi-code-slash"></i> Développeurs
+            </a>
             <a href="#download" class="cl-nav-cta">
                 <i class="bi bi-android2"></i> Télécharger
             </a>
+            <button class="cl-theme-toggle" id="themeToggle" type="button" aria-label="Basculer entre thème clair et sombre">
+                <i class="bi bi-moon-stars-fill icon-light"></i>
+                <i class="bi bi-sun-fill icon-dark"></i>
+            </button>
         </div>
     </div>
 </nav>
@@ -39,39 +174,55 @@
 <section class="cl-hero" id="accueil">
     <div class="cl-hero-bg">
         <div class="cl-hero-grid"></div>
-        <div class="cl-hero-glow g1"></div>
-        <div class="cl-hero-glow g2"></div>
+        <div class="cl-hero-swirl" aria-hidden="true">
+            <svg viewBox="0 0 600 600">
+                <g class="cl-swirl-spin">
+                    <circle cx="300" cy="120" r="70" fill="#4818F0"/>
+                    <circle cx="440" cy="190" r="55" fill="#30B4FC"/>
+                    <circle cx="470" cy="340" r="60" fill="#48D818"/>
+                    <circle cx="380" cy="470" r="50" fill="#C018D8"/>
+                    <circle cx="220" cy="470" r="55" fill="#FCC00C"/>
+                    <circle cx="130" cy="340" r="60" fill="#FC3018"/>
+                </g>
+            </svg>
+        </div>
     </div>
     <div class="container cl-hero-inner">
         <div class="cl-hero-left reveal">
-            <div class="cl-badge"><i class="bi bi-truck"></i> Transport intelligent · Cameroun</div>
+            <div class="cl-badge">
+                <i class="bi bi-truck"></i>
+                <span class="theme-copy-light">Transport &amp; livraison · Cameroun</span>
+                <span class="theme-copy-dark"><span class="cl-live-dot"></span> Réseau actif · Douala, Yaoundé, Bafoussam</span>
+            </div>
             <h1 class="cl-hero-title">
-                Vos marchandises,<br>
-                <span class="cl-stroke">n'importe où</span><br>
-                <span class="cl-accent-word">en un clic.</span>
+                Toute votre logistique,<br>
+                <span class="cl-accent-word">en un tap.</span>
             </h1>
             <p class="cl-hero-sub">
-                Camélia Logistics connecte vos besoins aux meilleurs transporteurs. Colis, équipements, déménagement — rapidité, sécurité et suivi en temps réel partout au Cameroun.
+                Colis, déménagement, expédition, stockage ou transport international : réservez un transporteur vérifié et suivez votre livraison en temps réel, partout au Cameroun.
             </p>
-            <div class="cl-hero-btns">
-                <a href="#comment" class="cl-btn-primary">
-                    <i class="bi bi-play-circle-fill"></i> Découvrir
-                </a>
-                <a href="#download" class="cl-btn-ghost">
-                    <i class="bi bi-download"></i> L'application
+            <div class="cl-store-badges">
+                <button class="cl-badge-btn" onclick="comingSoon()" type="button" aria-label="Bientôt disponible sur l'App Store">
+                    <img src="image/badges/app-store-badge.svg" alt="Bientôt disponible sur l'App Store" width="140" height="47">
+                </button>
+                <a class="cl-badge-btn" href="https://play.google.com/store/apps/details?id=com.camelia.logistics" target="_blank" rel="noopener" aria-label="Disponible sur Google Play">
+                    <img src="image/badges/google-play-badge.png" alt="Disponible sur Google Play" width="158" height="47">
                 </a>
             </div>
+            <p class="cl-hero-trust"><i class="bi bi-shield-check"></i> Un réseau de transporteurs vérifiés à Douala, Yaoundé et Bafoussam</p>
         </div>
+
         <div class="cl-hero-right reveal-right">
-            <div class="cl-hero-card-wrap">
-                <img src="image/warehouse_09.webp" alt="Transport Camélia" class="cl-hero-img">
+            <div class="cl-phone-wrap">
+                <img src="image/app.webp" alt="Aperçu de l'application mobile Camelia Logistics" class="cl-phone-img cl-float" width="630" height="420" fetchpriority="high">
+                <div class="cl-phone-glow"></div>
                 <div class="cl-floatcard fc-top">
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>95% à l'heure</span>
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>Suivi en temps réel</span>
                 </div>
                 <div class="cl-floatcard fc-bot">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <span>Douala ↔ Yaoundé</span>
+                    <i class="bi bi-shield-lock-fill"></i>
+                    <span>Paiement sécurisé</span>
                 </div>
             </div>
         </div>
@@ -97,12 +248,12 @@
             </div>
             <div class="cl-stat-divider"></div>
             <div class="cl-stat reveal-up" style="animation-delay:.2s">
-                <div class="cl-stat-num">95%</div>
+                <div class="cl-stat-num" data-count-to="95" data-suffix="%">0%</div>
                 <div class="cl-stat-label">Livraisons à l'heure</div>
             </div>
             <div class="cl-stat-divider"></div>
             <div class="cl-stat reveal-up" style="animation-delay:.3s">
-                <div class="cl-stat-num">3+</div>
+                <div class="cl-stat-num" data-count-to="3" data-suffix="+">0+</div>
                 <div class="cl-stat-label">Villes couvertes</div>
             </div>
         </div>
@@ -119,45 +270,33 @@
         </div>
         <div class="cl-services-grid">
             <div class="cl-service-card reveal-up">
-                <div class="cl-svc-num">01</div>
-                <div class="cl-svc-icon"><i class="bi bi-truck-front-fill"></i></div>
-                <h3>Livraisons urbaines</h3>
-                <p>De quartier à quartier, dans toutes les grandes villes du Cameroun. Rapidité garantie, même en heure de pointe.</p>
+                <div class="cl-svc-icon accent-red"><i class="bi bi-box-seam-fill"></i></div>
+                <h3>Livraison</h3>
+                <p>Colis rapide à prix fixe, de quartier à quartier ou d'une ville à l'autre. Suivi en temps réel jusqu'à la remise.</p>
                 <div class="cl-svc-hover-line"></div>
             </div>
             <div class="cl-service-card reveal-up" style="animation-delay:.1s">
-                <div class="cl-svc-num">02</div>
-                <div class="cl-svc-icon"><i class="bi bi-box-seam-fill"></i></div>
-                <h3>Transport interurbain</h3>
-                <p>De Douala à Yaoundé, Garoua ou Bafoussam. Sécurité et ponctualité sur tous les grands axes.</p>
+                <div class="cl-svc-icon accent-yellow"><i class="bi bi-house-door-fill"></i></div>
+                <h3>Déménagement</h3>
+                <p>Devis avec photos, camions adaptés et équipe disponible — résidentiel ou professionnel, sans stress.</p>
                 <div class="cl-svc-hover-line"></div>
             </div>
             <div class="cl-service-card reveal-up" style="animation-delay:.2s">
-                <div class="cl-svc-num">03</div>
-                <div class="cl-svc-icon"><i class="bi bi-house-door-fill"></i></div>
-                <h3>Déménagements</h3>
-                <p>Camions adaptés, équipes disponibles, déménagement sans stress — résidentiel ou professionnel.</p>
+                <div class="cl-svc-icon accent-green"><i class="bi bi-signpost-split-fill"></i></div>
+                <h3>Expédition</h3>
+                <p>Envoi de marchandises à travers le Cameroun avec suivi national, du dépôt à la livraison.</p>
                 <div class="cl-svc-hover-line"></div>
             </div>
             <div class="cl-service-card reveal-up" style="animation-delay:.3s">
-                <div class="cl-svc-num">04</div>
-                <div class="cl-svc-icon"><i class="bi bi-building-gear"></i></div>
-                <h3>Logistique pro</h3>
-                <p>Solutions dédiées aux entreprises : flux réguliers, contrats sur-mesure, reporting et traçabilité.</p>
+                <div class="cl-svc-icon accent-magenta"><i class="bi bi-archive-fill"></i></div>
+                <h3>Stockage</h3>
+                <p>Entreposage court ou long terme dans nos entrepôts sécurisés, avec accès facilité à vos marchandises.</p>
                 <div class="cl-svc-hover-line"></div>
             </div>
             <div class="cl-service-card reveal-up" style="animation-delay:.4s">
-                <div class="cl-svc-num">05</div>
-                <div class="cl-svc-icon"><i class="bi bi-lightning-charge-fill"></i></div>
-                <h3>Livraisons express</h3>
-                <p>Pour les urgences absolues. Ramassage en moins de 30 minutes et livraison prioritaire.</p>
-                <div class="cl-svc-hover-line"></div>
-            </div>
-            <div class="cl-service-card reveal-up" style="animation-delay:.5s">
-                <div class="cl-svc-num">06</div>
-                <div class="cl-svc-icon"><i class="bi bi-shield-check-fill"></i></div>
-                <h3>Transport sécurisé</h3>
-                <p>Chaque transporteur est vérifié et chaque trajet est assuré. Votre marchandise voyage en toute confiance.</p>
+                <div class="cl-svc-icon accent-blue"><i class="bi bi-globe-americas"></i></div>
+                <h3>Transport international</h3>
+                <p>Marchandises à l'étranger, formalités et suivi douanier pris en charge de bout en bout.</p>
                 <div class="cl-svc-hover-line"></div>
             </div>
         </div>
@@ -220,7 +359,7 @@
         <div class="cl-testi-grid">
             <div class="cl-testi-card reveal-up">
                 <div class="cl-testi-quote"><i class="bi bi-quote"></i></div>
-                <p>"J'envoie mes colis de Douala à Bafoussam tous les semaines. Avec Camélia Logistics, c'est devenu simple et fiable. Je ne pourrais plus m'en passer !"</p>
+                <p>"J'envoie mes colis de Douala à Bafoussam tous les semaines. Avec Camelia Logistics, c'est devenu simple et fiable. Je ne pourrais plus m'en passer !"</p>
                 <div class="cl-testi-author">
                     <div class="cl-testi-avatar"><i class="bi bi-person-fill"></i></div>
                     <div>
@@ -242,7 +381,7 @@
             </div>
             <div class="cl-testi-card reveal-up" style="animation-delay:.2s">
                 <div class="cl-testi-quote"><i class="bi bi-quote"></i></div>
-                <p>"J'ai choisi le pick-up pour transporter mes matériaux à Bafoussam. Aucun souci, professionnel ! Je recommande vivement Camélia Logistics."</p>
+                <p>"J'ai choisi le pick-up pour transporter mes matériaux à Bafoussam. Aucun souci, professionnel ! Je recommande vivement Camelia Logistics."</p>
                 <div class="cl-testi-author">
                     <div class="cl-testi-avatar"><i class="bi bi-person-fill"></i></div>
                     <div>
@@ -267,31 +406,82 @@
                 <h2 class="cl-section-title light">Téléchargez<br><span class="cl-accent-word">l'application</span></h2>
                 <p>Commandez un véhicule depuis votre téléphone en quelques secondes. Suivi en direct, paiement sécurisé, tout en un.</p>
                 <div class="cl-dl-buttons">
-                    <button class="cl-store-btn disabled" onclick="comingSoon()">
+                    <a href="https://play.google.com/store/apps/details?id=com.camelia.logistics" class="cl-store-btn available" target="_blank" rel="noopener">
                         <i class="bi bi-google-play"></i>
-                        <div><small>Bientôt sur</small><strong>Google Play</strong></div>
-                    </button>
-                    <button class="cl-store-btn disabled" onclick="comingSoon()">
+                        <div><small>Disponible sur</small><strong>Google Play</strong></div>
+                    </a>
+                    <button class="cl-store-btn disabled" onclick="comingSoon()" type="button">
                         <i class="bi bi-apple"></i>
                         <div><small>Bientôt sur</small><strong>App Store</strong></div>
                     </button>
-                    <button class="cl-apk-btn" id="apkTestBtn">
-                        <i class="bi bi-android2"></i>
-                        <div>
-                            <small>Version bêta disponible</small>
-                            <strong>Télécharger l'APK test</strong>
-                        </div>
-                        <span class="cl-apk-badge">TEST</span>
-                    </button>
                 </div>
-                <p class="cl-apk-note"><i class="bi bi-info-circle"></i> Version bêta pour testeurs Android. Activez "Sources inconnues" dans vos paramètres.</p>
             </div>
             <div class="cl-download-visual reveal-right">
                 <div class="cl-phone-wrap">
-                    <img src="image/app.webp" alt="App Camélia Logistics" class="cl-phone-img">
+                    <img src="image/app.webp" alt="Aperçu de l'application mobile Camelia Logistics" class="cl-phone-img" width="630" height="420" loading="lazy">
                     <div class="cl-phone-glow"></div>
                 </div>
+                <div class="cl-qr-card">
+                    <img src="image/badges/playstore-qr.svg" alt="QR code de téléchargement Google Play" width="88" height="88" loading="lazy">
+                    <span>Scannez pour<br>télécharger</span>
+                </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="cl-faq" id="faq">
+    <div class="container">
+        <div class="cl-section-head reveal-up">
+            <span class="cl-overline">Questions fréquentes</span>
+            <h2 class="cl-section-title">Tout ce qu'il faut<br><span class="cl-accent-word">savoir</span></h2>
+        </div>
+        <div class="cl-faq-list">
+            <details class="cl-faq-item reveal-up">
+                <summary>Comment fonctionne l'application Camelia Logistics ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Vous décrivez votre besoin (type de service, adresses, marchandise) depuis l'application, vous recevez une offre, vous confirmez et payez, puis vous suivez la livraison en temps réel jusqu'à sa remise.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Dans quelles villes Camelia Logistics est-elle disponible ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Le service est actif à Douala, Yaoundé et Bafoussam, avec des livraisons interurbaines vers les principaux axes du Cameroun. La couverture s'élargit progressivement.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Comment sont calculés les tarifs ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Le prix est calculé selon la distance, le type de véhicule et la nature du chargement. Le montant est affiché avant toute confirmation, sans frais cachés.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Mes colis sont-ils en sécurité pendant le transport ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Chaque transporteur partenaire est vérifié avant son intégration au réseau. Vous pouvez suivre le trajet en temps réel et échanger directement avec le transporteur assigné.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Comment suivre ma livraison en temps réel ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Dès qu'un transporteur est assigné, l'écran de suivi de l'application affiche sa position et le statut de la course jusqu'à la livraison.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Quels moyens de paiement sont acceptés ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Les paiements se font directement depuis l'application, via les moyens proposés au moment de la confirmation de commande.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Puis-je annuler une commande ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Oui, depuis l'application, tant que la course n'est pas terminée. Des frais peuvent s'appliquer selon l'avancement, affichés avant confirmation de l'annulation.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>L'application est-elle disponible sur iPhone ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Camelia Logistics est disponible dès maintenant sur Google Play. La version iOS (App Store) arrive bientôt.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Comment supprimer mon compte et mes données ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>La suppression est possible directement depuis les paramètres de l'application, ou en nous contactant. Le détail de la procédure est expliqué sur notre <a href="account-deletion/">page dédiée</a>.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Comment devenir transporteur partenaire ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Contactez-nous via WhatsApp ou email avec vos informations (véhicule, zone d'activité) ; notre équipe vous accompagne pour l'intégration au réseau.</div></div>
+            </details>
+            <details class="cl-faq-item reveal-up">
+                <summary>Que faire en cas de problème avec ma livraison ?<i class="bi bi-chevron-down"></i></summary>
+                <div class="cl-faq-a"><div>Notre support est disponible 24/7 par email ou WhatsApp — voir notre <a href="support/">page support</a> pour les coordonnées et l'assistance.</div></div>
+            </details>
         </div>
     </div>
 </section>
@@ -302,8 +492,8 @@
         <div class="cl-footer-top">
             <div class="cl-footer-brand-col">
                 <div class="cl-footer-brand">
-                    <img src="image/logo.webp" alt="Logo">
-                    <span>Camélia Logistics</span>
+                    <img src="image/logo.webp" alt="Logo Camelia Logistics" width="40" height="40" loading="lazy">
+                    <span>Camelia Logistics</span>
                 </div>
                 <p>Votre partenaire de confiance pour le transport au Cameroun. Rapidité, sécurité et innovation.</p>
                 <div class="cl-socials">
@@ -320,6 +510,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#comment">Comment ça marche</a></li>
                     <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#download">Télécharger</a></li>
                 </ul>
             </div>
@@ -327,9 +518,18 @@
                 <h4>Légal</h4>
                 <ul>
                     <li><a href="legal.html#about">À propos</a></li>
-                    <li><a href="legal.html#mentions-legales">Mentions légales</a></li>
-                    <li><a href="legal.html#confidentialite">Confidentialité</a></li>
-                    <li><a href="legal.html#cgu">Conditions d'utilisation</a></li>
+                    <li><a href="privacy-policy/index.html">Politique de confidentialité</a></li>
+                    <li><a href="terms-of-service/index.html">Conditions d'utilisation</a></li>
+                    <li><a href="account-deletion/index.html">Suppression de compte</a></li>
+                    <li><a href="support/index.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="cl-footer-col">
+                <h4>Développeurs</h4>
+                <ul>
+                    <li><a href="api-partenaires.html"><i class="bi bi-code-slash"></i> API Partenaires</a></li>
+                    <li><a href="api-partenaires.html#webhooks"><i class="bi bi-broadcast"></i> Webhooks</a></li>
+                    <li><a href="mailto:camelialogisticss@gmail.com?subject=Devenir%20partenaire%20API"><i class="bi bi-envelope-fill"></i> Devenir partenaire</a></li>
                 </ul>
             </div>
             <div class="cl-footer-col">
@@ -342,7 +542,7 @@
             </div>
         </div>
         <div class="cl-footer-bottom">
-            <span>&copy; 2024 <strong>Camélia Logistics SARL</strong>. Tous droits réservés.</span>
+            <span>&copy; <span id="currentYear">2026</span> <strong>Camelia Logistics SARL</strong>. Tous droits réservés.</span>
             <span>Design par <strong>Maximilien Pele</strong></span>
         </div>
     </div>
@@ -350,6 +550,18 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+
+// ---- Bascule theme clair/sombre ----
+const themeToggle = document.getElementById("themeToggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("cl-theme", next); } catch (e) {}
+  });
+}
+
 // ---- Navbar scroll ----
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -363,7 +575,7 @@ burger.addEventListener('click', () => {
     burger.classList.toggle('open');
     navLinks.classList.toggle('open');
 });
-navLinks.querySelectorAll('.cl-nav-link, .cl-nav-cta').forEach(l => {
+navLinks.querySelectorAll('.cl-nav-link, .cl-nav-cta, .cl-theme-toggle').forEach(l => {
     l.addEventListener('click', () => {
         burger.classList.remove('open');
         navLinks.classList.remove('open');
@@ -377,6 +589,37 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 revealEls.forEach(el => obs.observe(el));
 
+// ---- Compteurs de statistiques animés ----
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const counters = document.querySelectorAll('[data-count-to]');
+const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.countTo, 10);
+        const suffix = el.dataset.suffix || '';
+        countObs.unobserve(el);
+        if (prefersReducedMotion) {
+            el.textContent = target + suffix;
+            return;
+        }
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    });
+}, { threshold: 0.5 });
+counters.forEach(el => countObs.observe(el));
+
+// ---- Année du copyright ----
+const yearEl = document.getElementById('currentYear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 // ---- Active nav link ----
 const sections = document.querySelectorAll('section[id]');
 const navA = document.querySelectorAll('.cl-nav-link');
@@ -385,21 +628,6 @@ window.addEventListener('scroll', () => {
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
     navA.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
 });
-
-// ---- APK Download ----
-function downloadTestAPK() {
-    const apkUrl = "https://github.com/camelialogistics/camelia-website/releases/download/app/camelia.logistics.apk";
-    const link = document.createElement('a');
-    link.href = apkUrl;
-    link.download = "camelia-logistics-test.apk";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setTimeout(() => {
-        if (!document.hidden) alert("💡 Si le téléchargement ne démarre pas, vérifiez que le fichier APK est bien sur le serveur. Contactez-nous pour la version test.");
-    }, 1500);
-}
-document.getElementById('apkTestBtn')?.addEventListener('click', downloadTestAPK);
 
 function comingSoon() {
     alert("📱 L'application sera bientôt disponible sur les stores officiels !");
